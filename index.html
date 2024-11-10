@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Datenkompetenz</title>
+  <!-- Styles - inline, as I'm lazy now -->
+  <style type="text/css">
+  /* mulish-regular - latin */
+  @font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./mulish-v13-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  /* mulish-700 - latin */
+  @font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./mulish-v13-latin-700.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  body {
+    background: #f7f7f7;
+    font-size: inherit;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: Mulish, Muli, "Avenir Next", Avenir, "Noto Sans", "Segoe UI", sans-serif;
+    background-image: url("./bg5.jpg");
+    transition: background-position-y .667s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: 100%;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    max-width: 980px;
+    background: #fefefe;
+    margin: 1.5rem auto;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 10px whitesmoke;
+    min-height: 50rem;
+  }
+
+  img {
+    width: 100%;
+    transition: filter 1s;
+  }
+
+  img:hover {
+    filter: hue-rotate(-90deg);
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+
+  ::selection {
+    background-color: #b95555;
+    color: #fcfcfc;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0.5em 0;
+  }
+
+  section#survey {
+    position: relative;
+  }
+
+  #survey h1 {
+    min-height: 7.5rem;
+    text-align: center;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  p[data-pts] {
+    text-align: center;
+    padding: 1.2em .1em;
+    border: 1px solid #333;
+    border-radius: 4px;
+    box-shadow: 2px 2px #999;
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.25rem;
+    transition: color .25s, background-color .25s;
+  }
+
+  #tgl {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .inverted,
+  p[data-pts]:hover {
+    color: white;
+    background-color: hsl(142 30% 40% / 1);
+  }
+
+  .inverted {
+    padding: 0.15em;
+  }
+
+  div[data-info]:before {
+    content: attr(data-info);
+    color: #595;
+    font-size: 0.95rem;
+    top: -0.2rem;
+    right: 0.2rem;
+    position: absolute;
+  }
+
+  #results p {
+    font-size: 1.33rem;
+    line-height: 1.5;
+  }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1 class="center">Entdecken Sie Ihre Daten-Persönlichkeit</h1>
+    <h2 class="center inverted">Wie datenkompetent sind Sie <span id="tgl">?</span></h2>
+    <section id="survey">
+      <div id="q01" data-info="Frage 01 von 10">
+        <h1>Wie würden Sie sich fühlen, wenn Sie mit diesem Szenario konfrontiert würden?</h1>
+        <figure>
+          <img src="./img-q01.jpg" alt="Verschiedenste Schaubilder auf einem Bildschirm" />
+        </figure>
+        <p data-pts="3">Ich bin hin- und hergerissen zwischen Begeisterung und Entsetzen.</p>
+        <p data-pts="1">Es sieht für mich nur wie langweilige Diagramme auf einem Bildschirm aus.</p>
+        <p data-pts="4">Ich bin völlig entspannt. Ich erstelle diese grundlegenden Datenvisualisierungen täglich.</p>
+        <p data-pts="2">Ich bin fasziniert, aber ich wüsste nicht, wo ich anfangen sollte.</p>
+      </div>
+      <!-- *** -->
+      <div id="q02" hidden data-info="Frage 02 von 10">
+        <h1>Welche der folgenden Aussagen beschreibt Ihre Erfahrung mit Daten am besten?</h1>
+        <p data-pts="2">Ich verwende Daten gelegentlich, wenn sie mir vorgelegt werden.</p>
+        <p data-pts="1">Daten sind für meine Arbeit nicht entscheidend, also verlasse ich mich nicht auf sie.</p>
+        <p data-pts="4">
+          Ich bin geschickt im Umgang mit Daten und werde oft gebeten, meine Erkenntnisse weiterzugeben.
+        </p>
+        <p data-pts="3">Ich habe Zugang zu allen Daten, die ich mir nur wünschen kann.</p>
+      </div>
+      <!-- *** -->
+      <div id="q03" hidden data-info="Frage 03 von 10">
+        <h1>Wie oft fühlen Sie sich von Daten überwältigt?</h1>
+        <p data-pts="2">Ziemlich oft mit all den Anfragen, die reinkommen.</p>
+        <p data-pts="3">Ich lasse mich davon nicht wirklich beunruhigen. Es sind ja nur Zahlen und Statistiken.</p>
+        <p data-pts="1">Monatlich, wenn die Rechnungen eintreffen.</p>
+        <p data-pts="4">Niemals... es ist nützlich, warum sollte es überwältigend sein?</p>
+      </div>
+      <!-- *** -->
+      <div id="q04" hidden data-info="Frage 04 von 10">
+        <h1>Sind Sie der Meinung, dass das Verstehen von Daten genauso wichtig ist wie Lesen oder Schreiben?</h1>
+        <p data-pts="4">Ich stimme voll und ganz zu - es ist entscheidend.</p>
+        <p data-pts="3">Es verschafft einem einen Vorteil, aber in Zukunft wird es entscheidend sein.</p>
+        <p data-pts="1">Es wird nie so wichtig sein wie Lesen und Schreiben.</p>
+        <p data-pts="2">Es ist keine weit verbreitete Fähigkeit, aber sie ist sehr wichtig.</p>
+      </div>
+      <!-- *** -->
+      <div id="q05" hidden data-info="Frage 05 von 10">
+        <h1>Wie wichtig ist die Fähigkeit, mit Daten Geschichten zu erzählen?</h1>
+        <p data-pts="4">Es ist eine wichtige Fähigkeit, die es einfacher macht, Ergebnisse zu teilen.</p>
+        <p data-pts="2">Warum sollten wir Geschichten brauchen? Daten sind Daten.</p>
+        <p data-pts="3">Ich denke, es kann hilfreich sein, aber ich weiß nicht, wie.</p>
+        <p data-pts="1">Geschichtenerzählen... das macht man mit Daten?</p>
+      </div>
+      <!-- *** -->
+      <div id="q06" hidden data-info="Frage 06 von 10">
+        <h1>
+          Die zentrale Tendenz wird verwendet, um einen zentralen oder typischen Wert in einem Datensatz zu messen.
+          Fühlen Sie sich bei der Verwendung dieser Methode wohl?
+        </h1>
+        <p data-pts="1">Ähm, was ist die zentrale Tendenz?</p>
+        <p data-pts="5">Ich verwende die zentrale Tendenz täglich.</p>
+        <p data-pts="3">
+          Ich habe das Gefühl, den Begriff zu kennen, aber ich bin nicht sicher, wie ich ihn verwenden soll.
+        </p>
+        <p data-pts="2">Ich will keine technischen Details. Ich zeige nur das Endergebnis.</p>
+      </div>
+      <!-- *** -->
+      <div id="q07" hidden data-info="Frage 07 von 10">
+        <h1>Ausreißer können verwendet werden, um Daten anders zu analysieren. Wie oft verwenden Sie sie?</h1>
+        <p data-pts="1">Ausreißer sind bei der Analyse nicht hilfreich.</p>
+        <p data-pts="2">Was ist noch mal ein Ausreißer? Ich denke, dass sie nützlich sein können.</p>
+        <p data-pts="3">
+          Ich habe versucht, Ausreißer zu verwenden, aber ich muss noch etwas mehr mit Ausreißern arbeiten.
+        </p>
+        <p data-pts="4">
+          Ausreißer waren eine großartige Quelle der Erkenntnis, die es mir ermöglicht hat, tiefer zu blicken.
+        </p>
+      </div>
+      <!-- *** -->
+      <div id="q08" hidden data-info="Frage 08 von 10">
+        <h1>Wie oft ist bei Daten Korrelation gleich Kausalität?</h1>
+        <p data-pts="5">Dies ist eine Annahme, die niemals gemacht werden sollte.</p>
+        <p data-pts="2">Ich denke, ziemlich oft, aber ich muss noch mehr lernen.</p>
+        <p data-pts="3">
+          Ich denke dies manchmal, aber ich möchte besser darüber Bescheid wissen, wie ich es überprüfen kann.
+        </p>
+        <p data-pts="1">Warum untersuchen wir die Korrelation im Vergleich zu früheren Erfahrungen?</p>
+      </div>
+      <!-- *** -->
+      <div id="q09" hidden data-info="Frage 09 von 10">
+        <h1>Was halten Sie von Datenvisualisierung?</h1>
+        <p data-pts="1">Ich weiß nicht, wovon Sie sprechen.</p>
+        <p data-pts="3">Ich erstelle sie, aber ich bin nicht so gut, wie ich sein möchte.</p>
+        <p data-pts="4">Ich würde lieber ins Programmieren eintauchen.</p>
+        <p data-pts="2">Ich möchte meine Fähigkeiten wirklich verbessern.</p>
+      </div>
+      <!-- *** -->
+      <div id="q10" hidden data-info="Frage 10 von 10">
+        <h1>
+          Sind Sie auch der Meinung, dass vorausschauende (prädiktive) Analysen es uns ermöglichen, in die Zukunft zu
+          sehen, indem wir Muster und Trends erkennen?
+        </h1>
+        <p data-pts="1">Ich denke, dass mein Bauchgefühl ein viel besserer Indikator ist.</p>
+        <p data-pts="2">
+          Ich glaube, dass Vorhersagen und Wahrscheinlichkeiten hilfreich sein können, aber sie verwirren mich.
+        </p>
+        <p data-pts="4">Prädiktive Analytik ist für den Erfolg von Unternehmen unerlässlich.</p>
+        <p data-pts="3">Ich möchte meine Fähigkeiten in der prädiktiven Analytik ausbauen.</p>
+      </div>
+      <!-- *** -->
+      <div id="results" hidden class="card">
+        <h1>Ergebnis: <span id="sum">xy</span> von 42 Punkten</h1>
+        <p>Diese Punktzahl entspricht in etwa folgendem Profil:</p>
+        <div id="type1" hidden>
+          <h2 class="inverted center">Datenverweigerer (10-12 Punkte)</h2>
+          <p>
+            Datenverweigerer stehen dem Wert datengestützter Entscheidungen und Prozesse oft skeptisch gegenüber. Sie müssen die Vorteile der Verwendung von Daten erkennen, um ihre Intuition und ihr Erfahrungswissen, auf das sie sich normalerweise verlassen, zu prüfen. Bewusstseinsschulung ist die Voraussetzung für die Überwindung von Hindernissen für Veränderungen. Datenverweigerer müssen verstehen, dass sie ihre vorhandenen Stärken nutzen können, wenn sie mit der grundlegenden Arbeit an der Datenkompetenz beginnen.
+          </p>
+        </div>
+        <!-- *** -->
+        <div id="type2" hidden>
+          <h2 class="inverted center">Daten-Neuling (12-22 Punkte)</h2>
+          <p>
+            Daten-Neulinge befinden sich noch in der Anfangsphase der Datenkompetenz, nachdem sie die Vorteile der Arbeit mit Daten in ihrer derzeitigen Rolle erkannt haben. Sie benötigen grundlegende Kenntnisse über Daten und Analysen sowie über kritisches und analytisches Denken. Daten-Neulinge können dann auf dieser Grundlage mit Fähigkeiten in fortgeschrittenen analytischen Konzepten, Visualisierung und Präsentation von Zusammenhängen aufbauen.
+          </p>
+        </div>
+        <!-- *** -->
+        <div id="type3" hidden>
+          <h2 class="inverted center">Daten-Lehrling (22-32 Punkte)</h2>
+          <p>
+            Daten-Lehrlinge wollen ihre Kenntnisse in den Bereichen Data Science, Algorithmen und statistische Analysen vertiefen, um ihre Datenkompetenz zu erhöhen. Mit dem Ziel, zum Daten-Guru aufzusteigen, möchten Daten-Lehrlinge auch ihre Führungs-, Mentoring- und allgemeinen Geschäftsfähigkeiten verbessern. Sie möchten ihre Fähigkeiten zum Präsentieren von Zusammenhängen verbessern, um die Macht der Datenkompetenz zu demonstrieren.
+          </p>
+        </div>
+        <!-- *** -->
+        <div id="type4" hidden>
+          <h2 class="inverted center">Daten-Guru (32-42 Punkte)</h2>
+          <p>
+            Die datenkompetentesten Mitarbeiter verfügen über fortgeschrittene Fähigkeiten und Erfahrungen in der Datenanalyse - einige sind vielleicht sogar Datenwissenschaftler. Unterstützen Sie ihre kontinuierliche Weiterbildung in den Bereichen Erklärungen, Algorithmen und den neuesten Methoden der Datenanalyse. Helfen Sie den Daten-Gurus bei der Entwicklung von Führungs- und Mentoring-Fähigkeiten, damit sie als Multiplikatoren dienen und andere dabei unterstützen können, Ihr Unternehmen mit Daten zu leiten.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Scripts, inline - as I'm still lazy -->
+  <script type="text/javascript">
+  sum = 0;
+  document.querySelectorAll("[data-pts]").forEach((xb) => xb.addEventListener("click", clck_nxt));
+  document.querySelector("#tgl").addEventListener("click", tgl);
+
+  function clck_nxt(el) {
+    // console.log("el: ", el);
+    // console.log("this: ", this);
+    sum += Number(this.getAttribute("data-pts"));
+    document.getElementById("sum").innerText = sum;
+    // console.log(sum);
+    let q = this.closest("[data-info]");
+    let nxt_q = q.nextElementSibling;
+    q.hidden = true;
+    nxt_q.hidden = false;
+    document.body.style.backgroundPositionY = 10 * Number(q.id.split("q")[1]) + "%";
+    // console.log(q.id);
+    if (nxt_q.id == "results") {
+      if (sum > 32) {
+        document.getElementById("type4").hidden = false;
+      } else if (sum > 23) {
+        document.getElementById("type3").hidden = false;
+      } else if (sum > 13) {
+        document.getElementById("type2").hidden = false;
+      } else {
+        document.getElementById("type1").hidden = false;
+      }
+    }
+  }
+
+  function tgl(argument) {
+    if (document.querySelector("#tgl_pts")) {
+      document.querySelector("#tgl_pts").remove();
+    } else {
+      const tgl_pts = document.createElement("style");
+      tgl_pts.id = "tgl_pts";
+      document.querySelector("body").append(tgl_pts);
+      tgl_pts.innerHTML = 'p[data-pts]:after {content: " ["attr(data-pts)"]"}';
+    }
+  }
+  </script>
+</body>
+
+</html>
