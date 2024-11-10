@@ -38,6 +38,7 @@
     background-image: url("./bg5.jpg");
     transition: background-position-y .667s cubic-bezier(0.4, 0, 0.2, 1);
     background-size: 100%;
+    background-attachment: fixed;
   }
 
   main {
@@ -96,7 +97,7 @@
 
   p[data-pts] {
     text-align: center;
-    padding: 1.2em .1em;
+    padding: 1.2em .2em;
     border: 1px solid #333;
     border-radius: 4px;
     box-shadow: 2px 2px #999;
@@ -133,6 +134,19 @@
   #results p {
     font-size: 1.33rem;
     line-height: 1.5;
+  }
+
+  @media screen and (max-width: 1079px) {
+    body {
+      padding-bottom: 8rem;
+    }
+    main {
+      margin: 1.5rem 2rem;
+    }
+    p[data-pts] {
+      border: 1px dotted #777;
+      border-radius: 8px;
+    }
   }
   </style>
 </head>
@@ -254,21 +268,21 @@
         </div>
         <!-- *** -->
         <div id="type2" hidden>
-          <h2 class="inverted center">Daten-Neuling (12-22 Punkte)</h2>
+          <h2 class="inverted center">Daten-Neuling (13-22 Punkte)</h2>
           <p>
             Daten-Neulinge befinden sich noch in der Anfangsphase der Datenkompetenz, nachdem sie die Vorteile der Arbeit mit Daten in ihrer derzeitigen Rolle erkannt haben. Sie benötigen grundlegende Kenntnisse über Daten und Analysen sowie über kritisches und analytisches Denken. Daten-Neulinge können dann auf dieser Grundlage mit Fähigkeiten in fortgeschrittenen analytischen Konzepten, Visualisierung und Präsentation von Zusammenhängen aufbauen.
           </p>
         </div>
         <!-- *** -->
         <div id="type3" hidden>
-          <h2 class="inverted center">Daten-Lehrling (22-32 Punkte)</h2>
+          <h2 class="inverted center">Daten-Lehrling (23-32 Punkte)</h2>
           <p>
             Daten-Lehrlinge wollen ihre Kenntnisse in den Bereichen Data Science, Algorithmen und statistische Analysen vertiefen, um ihre Datenkompetenz zu erhöhen. Mit dem Ziel, zum Daten-Guru aufzusteigen, möchten Daten-Lehrlinge auch ihre Führungs-, Mentoring- und allgemeinen Geschäftsfähigkeiten verbessern. Sie möchten ihre Fähigkeiten zum Präsentieren von Zusammenhängen verbessern, um die Macht der Datenkompetenz zu demonstrieren.
           </p>
         </div>
         <!-- *** -->
         <div id="type4" hidden>
-          <h2 class="inverted center">Daten-Guru (32-42 Punkte)</h2>
+          <h2 class="inverted center">Daten-Guru (33-42 Punkte)</h2>
           <p>
             Die datenkompetentesten Mitarbeiter verfügen über fortgeschrittene Fähigkeiten und Erfahrungen in der Datenanalyse - einige sind vielleicht sogar Datenwissenschaftler. Unterstützen Sie ihre kontinuierliche Weiterbildung in den Bereichen Erklärungen, Algorithmen und den neuesten Methoden der Datenanalyse. Helfen Sie den Daten-Gurus bei der Entwicklung von Führungs- und Mentoring-Fähigkeiten, damit sie als Multiplikatoren dienen und andere dabei unterstützen können, Ihr Unternehmen mit Daten zu leiten.
           </p>
@@ -292,14 +306,14 @@
     let nxt_q = q.nextElementSibling;
     q.hidden = true;
     nxt_q.hidden = false;
-    document.body.style.backgroundPositionY = 10 * Number(q.id.split("q")[1]) + "%";
+    document.body.style.backgroundPositionY = "-" + 200 * Number(q.id.split("q")[1]) + "px";
     // console.log(q.id);
     if (nxt_q.id == "results") {
-      if (sum > 32) {
+      if (sum >= 33) {
         document.getElementById("type4").hidden = false;
-      } else if (sum > 23) {
+      } else if (sum >= 23) {
         document.getElementById("type3").hidden = false;
-      } else if (sum > 13) {
+      } else if (sum >= 13) {
         document.getElementById("type2").hidden = false;
       } else {
         document.getElementById("type1").hidden = false;
