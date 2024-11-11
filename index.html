@@ -318,7 +318,9 @@
   <!-- Scripts, inline - as I'm still lazy -->
   <script type="text/javascript">
   sum = 0;
-  document.querySelectorAll("[data-pts]").forEach((xb) => xb.addEventListener("click", clck_nxt));
+  document.querySelectorAll("[data-pts]").forEach((xb) => {
+    xb.addEventListener("click", clck_nxt);
+  });
   document.querySelector("#tgl").addEventListener("click", tgl);
 
   function clck_nxt(el) {
@@ -356,6 +358,44 @@
       tgl_pts.innerHTML = 'p[data-pts]:after {content: " ["attr(data-pts)"]"}';
     }
   }
+
+  function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+    return array;
+  }
+
+  document.querySelectorAll('div[data-info]').forEach(div => {
+    const pElements = Array.from(div.querySelectorAll('p[data-pts]'));
+    shuffle(pElements).forEach(p => div.appendChild(p));
+  });
+
+  // // Function to shuffle an array
+  // function shuffle(array) {
+  //   for (let i = array.length - 1; i > 0; i--) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     [array[i], array[j]] = [array[j], array[i]];
+  //   }
+  //   return array;
+  // }
+
+  // // Get all div elements with data-info attribute
+  // const divElements = document.querySelectorAll("div[data-info]");
+
+  // divElements.forEach((div) => {
+  //   // Get all p elements with data-pts attribute within the div
+  //   const pElements = div.querySelectorAll("p[data-pts]");
+
+  //   // Convert NodeList to an array
+  //   const pArray = Array.from(pElements);
+
+  //   // Shuffle the array
+  //   const shuffledArray = shuffle(pArray);
+
+  //   // Append shuffled elements back to the div
+  //   shuffledArray.forEach((p) => {
+  //     div.appendChild(p);
+  //   });
+  // });
   </script>
 </body>
 
