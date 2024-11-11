@@ -140,9 +140,11 @@
     body {
       padding-bottom: 8rem;
     }
+
     main {
       margin: 1.5rem 2rem;
     }
+
     p[data-pts] {
       border: 1px dotted #777;
       border-radius: 8px;
@@ -153,23 +155,89 @@
 
 <body>
   <main>
-    <h1 class="center">Entdecken Sie Ihre Daten-Persönlichkeit</h1>
-    <h2 class="center inverted">Wie datenkompetent sind Sie <span id="tgl">?</span></h2>
+    <h1 class="center">Entdecken Sie Ihre Datengewandtheit</h1>
+    <h2 class="center inverted">Datenaufbereitungs- & Visualisierungsquiz<span id="tgl">:</span></h2>
     <section id="survey">
       <div id="q01" data-info="Frage 01 von 10">
-        <h1>Wie würden Sie sich fühlen, wenn Sie mit diesem Szenario konfrontiert würden?</h1>
+        <h1>Was sind Ihre Gedanken beim Anblick dieses Bildes?</h1>
         <figure>
           <img src="./img-q01.jpg" alt="Verschiedenste Schaubilder auf einem Bildschirm" />
         </figure>
-        <p data-pts="3">Ich bin hin- und hergerissen zwischen Begeisterung und Entsetzen.</p>
-        <p data-pts="1">Es sieht für mich nur wie langweilige Diagramme auf einem Bildschirm aus.</p>
-        <p data-pts="4">Ich bin völlig entspannt. Ich erstelle diese grundlegenden Datenvisualisierungen täglich.</p>
-        <p data-pts="2">Ich bin fasziniert, aber ich wüsste nicht, wo ich anfangen sollte.</p>
+        <p data-pts="3">Ich wünschte, Excel könnte solche Diagramme erstellen.</p>
+        <p data-pts="1">Sieht aus wie recht langweilige Diagramme auf einem Bildschirm.</p>
+        <p data-pts="4">ggplot2 ist sehr hilfreich für die Visualisierung in R, aber es gibt auch einige Alternativen.</p>
+        <p data-pts="2">Faszinierend – aber ich wüsste nicht, wo anfangen.</p>
       </div>
       <!-- *** -->
       <div id="q02" hidden data-info="Frage 02 von 10">
-        <h1>Welche der folgenden Aussagen beschreibt Ihre Erfahrung mit Daten am besten?</h1>
-        <p data-pts="2">Ich verwende Daten gelegentlich, wenn sie mir vorgelegt werden.</p>
+        <h1>
+          Was ist ein Median?
+        </h1>
+        <figure>
+          <img src="./img-q06.jpg" alt="Erdhälften" />
+        </figure>
+        <p data-pts="1">Der Längengrad, der die Erde in Ost und West teilt.</p>
+        <p data-pts="5">Der zentrale Wert einer geordneten Datenreihe.</p>
+        <p data-pts="3">
+          Ich habe das Gefühl, den Begriff zu kennen, aber ich bin nicht sicher, wie ich ihn verwenden soll.
+        </p>
+        <p data-pts="2">Der mittlere Platz in einer Sitzreihe, wo man den besten Überblick hat.</p>
+      </div>
+      <!-- *** -->
+      <div id="q03" hidden data-info="Frage 03 von 10">
+        <h1>Wie geht man am besten mit Ausreißern in einem Datensatz um?</h1>
+        <figure>
+          <img src="./img-q07.jpg" alt="Bunte Punkte zufallsverteilt." />
+        </figure>
+        <p data-pts="1">Es sing nur lästige Punkte, die man einfach ignorieren sollte.</p>
+        <p data-pts="2">Ich glaube, das sind einfach Fehler in den Daten.</p>
+        <p data-pts="3">Sie können Trends verfälschen oder uns auf interessante Abweichungen hinweisen.</p>
+        <p data-pts="4">
+          Sie können Anomalien identifizieren und die Robustheit von Modellen testen.
+        </p>
+      </div>
+      <!-- *** -->
+      <div id="q04" hidden data-info="Frage 04 von 10">
+        <h1>Wie oft ist bei Daten Korrelation gleich Kausalität?</h1>
+        <figure>
+          <img src="./img-q08.jpg" alt="Korrelation oder Kausalität?" />
+        </figure>
+        <p data-pts="5">Dies ist eine Annahme, die niemals gemacht werden sollte.</p>
+        <p data-pts="2">Ich denke, ziemlich oft, aber wieso ist noch unklar.</p>
+        <p data-pts="3">
+          Manchmal, aber ich würde gern wissen, wie man dies überprüfen kann.
+        </p>
+        <p data-pts="1">Warum? Untersuchen wir die Korrelation im Vergleich zu früheren Erfahrungen?</p>
+      </div>
+      <!-- *** -->
+      <div id="q05" hidden data-info="Frage 05 von 10">
+        <h1>Was halten Sie von Datenvisualisierung?</h1>
+        <figure>
+          <img src="./img-q09.jpg" alt="Netz von Punkten unterschiedlicher Größe." />
+        </figure>
+        <p data-pts="1">Ich weiß nicht, wovon Sie sprechen.</p>
+        <p data-pts="3">Ich erstelle sie, aber ich bin nicht so gut, wie ich sein möchte.</p>
+        <p data-pts="4">Ich würde lieber programmatische Visualisierungen erstellen.</p>
+        <p data-pts="2">Ich möchte grundlegende Datenvisualisierungen erstellen können.</p>
+      </div>
+      <!-- *** -->
+      <div id="q06" hidden data-info="Frage 06 von 10">
+        <h1>Fühlen Sie sich von Daten überwältigt?</h1>
+        <figure>
+          <img src="./img-q03.jpg" alt="Erschöpfter Mensch, Kopf auf einem Tisch voller Dokumente und Schaubilder" />
+        </figure>
+        <p data-pts="2">Öfter – durch die Vielzahl von Anfragen beeinflusst.</p>
+        <p data-pts="3">Ich gestehe, dass es mir manchmal Schwierigkeiten bereitet, aber ich behalte die Kontrolle.</p>
+        <p data-pts="1">Ja, immer wenn die monatlichen Rechnungen eintreffen.</p>
+        <p data-pts="4">Daten können zwar eine Herausforderung darstellen, aber sie sind auch wertvoll.</p>
+      </div>
+      <!-- *** -->
+      <div id="q07" hidden data-info="Frage 07 von 10">
+        <figure>
+          <img src="./img-q02.jpg" alt="Datenströme, die farblich sortiert und gruppiert werden" />
+        </figure>
+        <h1>Wie viel Erfahrung mit Datenaufbereitung haben Sie?</h1>
+        <p data-pts="2">Ich nutze Daten selten, wenn sie mir bereitgestellt werden.</p>
         <p data-pts="1">Daten sind für meine Arbeit nicht entscheidend, also verlasse ich mich nicht auf sie.</p>
         <p data-pts="4">
           Ich bin geschickt im Umgang mit Daten und werde oft gebeten, meine Erkenntnisse weiterzugeben.
@@ -177,81 +245,38 @@
         <p data-pts="3">Ich habe Zugang zu allen Daten, die ich mir nur wünschen kann.</p>
       </div>
       <!-- *** -->
-      <div id="q03" hidden data-info="Frage 03 von 10">
-        <h1>Wie oft fühlen Sie sich von Daten überwältigt?</h1>
-        <p data-pts="2">Ziemlich oft mit all den Anfragen, die reinkommen.</p>
-        <p data-pts="3">Ich lasse mich davon nicht wirklich beunruhigen. Es sind ja nur Zahlen und Statistiken.</p>
-        <p data-pts="1">Monatlich, wenn die Rechnungen eintreffen.</p>
-        <p data-pts="4">Niemals... es ist nützlich, warum sollte es überwältigend sein?</p>
+      <div id="q08" hidden data-info="Frage 08 von 10">
+        <h1>Sind Sie der Meinung, dass das Verstehen von Daten genauso wichtig ist, wie Lesen oder Schreiben?</h1>
+        <figure>
+          <img src="./img-q04.jpg" alt="Datenvisualisierung und -erklärung" />
+        </figure>
+        <p data-pts="4">Datenverständnis ist nahezu gleichwertig zu Lesen oder Schreiben.</p>
+        <p data-pts="3">Heute noch nicht unbedingt notwendig, aber in der Zukunft entscheidend.</p>
+        <p data-pts="1">Datenverständnis spielt kaum eine Rolle.</p>
+        <p data-pts="2">Es ist noch nicht allgemein verbreitet; wird zukünftig vielleicht eine größere Rolle spielen?</p>
       </div>
       <!-- *** -->
-      <div id="q04" hidden data-info="Frage 04 von 10">
-        <h1>Sind Sie der Meinung, dass das Verstehen von Daten genauso wichtig ist wie Lesen oder Schreiben?</h1>
-        <p data-pts="4">Ich stimme voll und ganz zu - es ist entscheidend.</p>
-        <p data-pts="3">Es verschafft einem einen Vorteil, aber in Zukunft wird es entscheidend sein.</p>
-        <p data-pts="1">Es wird nie so wichtig sein wie Lesen und Schreiben.</p>
-        <p data-pts="2">Es ist keine weit verbreitete Fähigkeit, aber sie ist sehr wichtig.</p>
-      </div>
-      <!-- *** -->
-      <div id="q05" hidden data-info="Frage 05 von 10">
+      <div id="q09" hidden data-info="Frage 09 von 10">
         <h1>Wie wichtig ist die Fähigkeit, mit Daten Geschichten zu erzählen?</h1>
+        <figure>
+          <img src="./img-q05.jpg" alt="Datenpipelines" />
+        </figure>
         <p data-pts="4">Es ist eine wichtige Fähigkeit, die es einfacher macht, Ergebnisse zu teilen.</p>
         <p data-pts="2">Warum sollten wir Geschichten brauchen? Daten sind Daten.</p>
         <p data-pts="3">Ich denke, es kann hilfreich sein, aber ich weiß nicht, wie.</p>
         <p data-pts="1">Geschichtenerzählen... das macht man mit Daten?</p>
       </div>
       <!-- *** -->
-      <div id="q06" hidden data-info="Frage 06 von 10">
-        <h1>
-          Die zentrale Tendenz wird verwendet, um einen zentralen oder typischen Wert in einem Datensatz zu messen.
-          Fühlen Sie sich bei der Verwendung dieser Methode wohl?
-        </h1>
-        <p data-pts="1">Ähm, was ist die zentrale Tendenz?</p>
-        <p data-pts="5">Ich verwende die zentrale Tendenz täglich.</p>
-        <p data-pts="3">
-          Ich habe das Gefühl, den Begriff zu kennen, aber ich bin nicht sicher, wie ich ihn verwenden soll.
-        </p>
-        <p data-pts="2">Ich will keine technischen Details. Ich zeige nur das Endergebnis.</p>
-      </div>
-      <!-- *** -->
-      <div id="q07" hidden data-info="Frage 07 von 10">
-        <h1>Ausreißer können verwendet werden, um Daten anders zu analysieren. Wie oft verwenden Sie sie?</h1>
-        <p data-pts="1">Ausreißer sind bei der Analyse nicht hilfreich.</p>
-        <p data-pts="2">Was ist noch mal ein Ausreißer? Ich denke, dass sie nützlich sein können.</p>
-        <p data-pts="3">
-          Ich habe versucht, Ausreißer zu verwenden, aber ich muss noch etwas mehr mit Ausreißern arbeiten.
-        </p>
-        <p data-pts="4">
-          Ausreißer waren eine großartige Quelle der Erkenntnis, die es mir ermöglicht hat, tiefer zu blicken.
-        </p>
-      </div>
-      <!-- *** -->
-      <div id="q08" hidden data-info="Frage 08 von 10">
-        <h1>Wie oft ist bei Daten Korrelation gleich Kausalität?</h1>
-        <p data-pts="5">Dies ist eine Annahme, die niemals gemacht werden sollte.</p>
-        <p data-pts="2">Ich denke, ziemlich oft, aber ich muss noch mehr lernen.</p>
-        <p data-pts="3">
-          Ich denke dies manchmal, aber ich möchte besser darüber Bescheid wissen, wie ich es überprüfen kann.
-        </p>
-        <p data-pts="1">Warum untersuchen wir die Korrelation im Vergleich zu früheren Erfahrungen?</p>
-      </div>
-      <!-- *** -->
-      <div id="q09" hidden data-info="Frage 09 von 10">
-        <h1>Was halten Sie von Datenvisualisierung?</h1>
-        <p data-pts="1">Ich weiß nicht, wovon Sie sprechen.</p>
-        <p data-pts="3">Ich erstelle sie, aber ich bin nicht so gut, wie ich sein möchte.</p>
-        <p data-pts="4">Ich würde lieber ins Programmieren eintauchen.</p>
-        <p data-pts="2">Ich möchte meine Fähigkeiten wirklich verbessern.</p>
-      </div>
-      <!-- *** -->
       <div id="q10" hidden data-info="Frage 10 von 10">
         <h1>
-          Sind Sie auch der Meinung, dass vorausschauende (prädiktive) Analysen es uns ermöglichen, in die Zukunft zu
-          sehen, indem wir Muster und Trends erkennen?
+          Können Vorhersagen durch vorausschauende Analysen, und die Erkennung von Mustern und Trends, verbessert werden?
         </h1>
+        <figure>
+          <img src="./img-q10.jpg" alt="Kristallkugel" />
+        </figure>
         <p data-pts="1">Ich denke, dass mein Bauchgefühl ein viel besserer Indikator ist.</p>
         <p data-pts="2">
-          Ich glaube, dass Vorhersagen und Wahrscheinlichkeiten hilfreich sein können, aber sie verwirren mich.
+          Ich glaube, dass Vorhersagen und Wahrscheinlichkeiten hilfreich sein können, aber sie erscheinen mir unübersichtlich.
         </p>
         <p data-pts="4">Prädiktive Analytik ist für den Erfolg von Unternehmen unerlässlich.</p>
         <p data-pts="3">Ich möchte meine Fähigkeiten in der prädiktiven Analytik ausbauen.</p>
@@ -261,9 +286,9 @@
         <h1>Ergebnis: <span id="sum">xy</span> von 42 Punkten</h1>
         <p>Diese Punktzahl entspricht in etwa folgendem Profil:</p>
         <div id="type1" hidden>
-          <h2 class="inverted center">Datenverweigerer (10-12 Punkte)</h2>
+          <h2 class="inverted center">Daten-Verweigerer (10-12 Punkte)</h2>
           <p>
-            Datenverweigerer stehen dem Wert datengestützter Entscheidungen und Prozesse oft skeptisch gegenüber. Sie müssen die Vorteile der Verwendung von Daten erkennen, um ihre Intuition und ihr Erfahrungswissen, auf das sie sich normalerweise verlassen, zu prüfen. Bewusstseinsschulung ist die Voraussetzung für die Überwindung von Hindernissen für Veränderungen. Datenverweigerer müssen verstehen, dass sie ihre vorhandenen Stärken nutzen können, wenn sie mit der grundlegenden Arbeit an der Datenkompetenz beginnen.
+            Daten-Verweigerer stehen dem Wert datengestützter Entscheidungen und Prozesse oft skeptisch gegenüber. Sie müssen die Vorteile der Verwendung von Daten erkennen, um ihre Intuition und ihr Erfahrungswissen, auf das sie sich normalerweise verlassen, zu prüfen. Bewusstseinsschulung ist die Voraussetzung für die Überwindung von Hindernissen für Veränderungen. Daten-Verweigerer müssen verstehen, dass sie ihre vorhandenen Stärken nutzen können, wenn sie mit der grundlegenden Arbeit an der Datenkompetenz beginnen.
           </p>
         </div>
         <!-- *** -->
@@ -277,7 +302,7 @@
         <div id="type3" hidden>
           <h2 class="inverted center">Daten-Lehrling (23-32 Punkte)</h2>
           <p>
-            Daten-Lehrlinge wollen ihre Kenntnisse in den Bereichen Data Science, Algorithmen und statistische Analysen vertiefen, um ihre Datenkompetenz zu erhöhen. Mit dem Ziel, zum Daten-Guru aufzusteigen, möchten Daten-Lehrlinge auch ihre Führungs-, Mentoring- und allgemeinen Geschäftsfähigkeiten verbessern. Sie möchten ihre Fähigkeiten zum Präsentieren von Zusammenhängen verbessern, um die Macht der Datenkompetenz zu demonstrieren.
+            Daten-Lehrlinge wollen ihre Kenntnisse in den Bereichen Data-Science, Algorithmen und statistische Analysen vertiefen, um ihre Datenkompetenz zu erhöhen. Mit dem Ziel, zum Daten-Guru aufzusteigen, möchten Daten-Lehrlinge auch ihre Führungs-, Mentoring- und allgemeinen Geschäftsfähigkeiten verbessern. Sie möchten ihre Fähigkeiten zum Präsentieren von Zusammenhängen verbessern, um die Macht der Datenkompetenz zu demonstrieren.
           </p>
         </div>
         <!-- *** -->
