@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Datenkompetenz</title>
+  <title>Datenkompetenzquiz</title>
   <!-- Styles - inline, as I'm lazy now -->
   <style type="text/css">
   /* mulish-regular - latin */
@@ -115,13 +115,15 @@
   }
 
   .inverted,
-  p[data-pts]:hover {
+  p[data-pts]:hover,
+  p[data-pts]:focus {
     color: white;
     background-color: hsl(142 30% 40% / 1);
   }
 
   .inverted {
     padding: 0.15em;
+    border-radius: 4px;
   }
 
   div[data-info]:before {
@@ -150,6 +152,13 @@
 
     main {
       margin: 1.5rem 2rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .inverted {
+      padding: 0.33em;
+      border-radius: 8px;
     }
 
     p[data-pts] {
@@ -358,9 +367,9 @@
               </g>
             </svg>
           </figure>
-          <h2 class="inverted center">Daten-Lehrling (23-32 Punkte)</h2>
+          <h2 class="inverted center">Daten-Fortgeschrittene (23-32 Punkte)</h2>
           <p>
-            Daten-Lehrlinge wollen ihre Kenntnisse in den Bereichen Data-Science, Algorithmen und statistische Analysen vertiefen, um ihre Datenkompetenz zu erhöhen. Mit dem Ziel, zum Daten-Guru aufzusteigen, möchten Daten-Lehrlinge auch ihre Führungs-, Mentoring- und allgemeinen Geschäftsfähigkeiten verbessern. Sie möchten ihre Fähigkeiten zum Präsentieren von Zusammenhängen verbessern, um die Macht der Datenkompetenz zu demonstrieren.
+            Daten-Fortgeschrittene wollen ihre Kenntnisse in den Bereichen Data-Science, Algorithmen und statistische Analysen vertiefen, um ihre Datenkompetenz zu erhöhen. Mit dem Ziel, zum Daten-Guru aufzusteigen, möchten Daten-Fortgeschrittene auch ihre Führungs-, Mentoring- und allgemeinen Geschäftsfähigkeiten verbessern. Sie möchten ihre Fähigkeiten zum Präsentieren von Zusammenhängen verbessern, um die Macht der Datenkompetenz zu demonstrieren.
           </p>
         </div>
         <!-- *** -->
