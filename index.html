@@ -60,8 +60,15 @@
     transition: filter 1s;
   }
 
+  img#logo {
+    display: block;
+    height: auto;
+    width: auto;
+    margin: 0 auto;
+  }
+
   img:hover {
-    filter: hue-rotate(-90deg);
+    filter: hue-rotate(-45deg);
   }
 
   *,
@@ -176,7 +183,9 @@
 
 <body>
   <main>
-    <h1 class="center">Entdecken Sie Ihre Daten&shy;persönlichkeit</h1>
+    <h1 class="center">
+      <img id="logo" src="ntbs-logo-sm.png" alt="NTT Data Logo - Business Solutions">
+        Entdecken Sie Ihre Daten&shy;persönlichkeit</h1>
     <h2 class="center inverted">Daten&shy;aufbereitungs- & Visualisierungs&shy;quiz<span id="tgl">:</span></h2>
     <section id="survey">
       <div id="q01" data-info="Frage 01 von 10">
