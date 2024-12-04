@@ -125,7 +125,8 @@
   p[data-pts]:hover,
   p[data-pts]:focus {
     color: white;
-    background-color: hsl(142 30% 40% / 1);
+    background-color: #0072bc;
+/*    background-color: (142 30% 40% / 1);*/
   }
 
   .inverted {
@@ -135,10 +136,12 @@
 
   div[data-info]:before {
     content: attr(data-info);
-    color: #595;
+    color: #047; 
+/*  hsl(204 100% 23% / 1) */
+/*  color:  #595;*/
     font-size: 0.95rem;
     top: -0.2rem;
-    right: 0.2rem;
+    right: 0.2rem; 
     position: absolute;
   }
 
@@ -185,7 +188,7 @@
   <main>
     <h1 class="center">
       <img id="logo" src="ntbs-logo-sm.png" alt="NTT Data Logo - Business Solutions">
-        Entdecken Sie Ihre Daten&shy;persönlichkeit</h1>
+        Entdecken Sie Ihre Daten&shy;kompetenz</h1>
     <h2 class="center inverted">Daten&shy;aufbereitungs- & Visualisierungs&shy;quiz<span id="tgl">:</span></h2>
     <section id="survey">
       <div id="q01" data-info="Frage 01 von 10">
@@ -230,7 +233,7 @@
       <div id="q04" hidden data-info="Frage 04 von 10">
         <h1>Wie oft ist bei Daten Korrelation gleich Kausalität?</h1>
         <figure>
-          <img src="./img-q08.jpg" alt="Korrelation oder Kausalität?" />
+          <img src="./img-q08.png" alt="Korrelation oder Kausalität?" />
         </figure>
         <p data-pts="5">Dies ist eine Annahme, die niemals gemacht werden sollte.</p>
         <p data-pts="2">Ich denke, ziemlich oft, aber wieso ist noch unklar.</p>
