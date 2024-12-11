@@ -1,0 +1,497 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Datenkompetenzquiz</title>
+  <!-- Styles - inline, as I'm lazy now -->
+  <style type="text/css">
+  /* mulish-regular - latin */
+  @font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./mulish-v13-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  /* mulish-700 - latin */
+  @font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./mulish-v13-latin-700.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  body {
+    background: #f7f7f7;
+    font-size: inherit;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: Mulish, Muli, "Avenir Next", Avenir, "Noto Sans", "Segoe UI", sans-serif;
+    background-image: url("./bg5.jpg");
+    transition: background-position-y .667s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: 100%;
+    background-attachment: fixed;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    max-width: 980px;
+    background: #fefefe;
+    margin: 1.5rem auto;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 10px whitesmoke;
+    min-height: 50rem;
+    overflow-wrap: break-word;
+    hyphens: manual;
+  }
+
+  img {
+    width: 100%;
+    transition: filter 1s;
+  }
+
+  img#logo {
+    display: block;
+    height: auto;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  img:hover {
+    filter: hue-rotate(-45deg);
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+
+  ::selection {
+    background-color: #b95555;
+    color: #fcfcfc;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0.5em 0;
+  }
+
+  section#survey {
+    position: relative;
+  }
+
+  #survey h1 {
+    min-height: 7.5rem;
+    text-align: center;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  p[data-pts] {
+    text-align: center;
+    padding: 1.2em .2em;
+    border: 1px solid #333;
+    border-radius: 4px;
+    box-shadow: 2px 2px #999;
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.25rem;
+    transition: color .25s, background-color .25s;
+  }
+
+  #tgl {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .inverted,
+  p[data-pts]:hover,
+  p[data-pts]:focus {
+    color: white;
+    background-color: #0072bc;
+/*    background-color: (142 30% 40% / 1);*/
+  }
+
+  .inverted {
+    padding: 0.15em;
+    border-radius: 4px;
+  }
+
+  div[data-info]:before {
+    content: attr(data-info);
+    color: #047; 
+/*  hsl(204 100% 23% / 1) */
+/*  color:  #595;*/
+    font-size: 0.95rem;
+    top: -0.2rem;
+    right: 0.2rem; 
+    position: absolute;
+  }
+
+  #results p {
+    font-size: 1.33rem;
+    line-height: 1.5;
+  }
+
+  figure.svg {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 1079px) {
+    body {
+      padding-bottom: 8rem;
+    }
+
+    main {
+      margin: 1.5rem 2rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .inverted {
+      padding: 0.33em;
+      border-radius: 8px;
+    }
+
+    p[data-pts] {
+      border: 1px dotted #777;
+      border-radius: 8px;
+    }
+
+    figure.svg {
+      max-width: 256px;
+      margin: 0 auto;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1 class="center">
+      <img id="logo" src="ntbs-logo-sm.png" alt="NTT Data Logo - Business Solutions">
+        Entdecken Sie Ihre Daten&shy;kompetenz</h1>
+    <h2 class="center inverted">Daten&shy;aufbereitungs- & Visualisierungs&shy;quiz<span id="tgl">:</span></h2>
+    <section id="survey">
+      <div id="q01" data-info="Frage 01 von 10">
+        <h1>Was sind Ihre Gedanken beim Anblick dieses Bildes?</h1>
+        <figure>
+          <img src="./img-q01.jpg" alt="Verschiedenste Schaubilder auf einem Bildschirm" />
+        </figure>
+        <p data-pts="3">Ich wünschte, Excel könnte solche Diagramme erstellen.</p>
+        <p data-pts="1">Sieht aus wie recht langweilige Diagramme auf einem Bildschirm.</p>
+        <p data-pts="4">ggplot2 ist sehr hilfreich für die Visualisierung in R, aber es gibt auch einige Alternativen.</p>
+        <p data-pts="2">Faszinierend – aber ich wüsste nicht, wo anfangen.</p>
+      </div>
+      <!-- *** -->
+      <div id="q02" hidden data-info="Frage 02 von 10">
+        <h1>
+          Was ist ein Median?
+        </h1>
+        <figure>
+          <img src="./img-q06.jpg" alt="Erdhälften" />
+        </figure>
+        <p data-pts="1">Der Längengrad, der die Erde in Ost und West teilt.</p>
+        <p data-pts="5">Der zentrale Wert einer geordneten Datenreihe.</p>
+        <p data-pts="3">
+          Ich habe das Gefühl, den Begriff zu kennen, aber ich bin nicht sicher, wie ich ihn verwenden soll.
+        </p>
+        <p data-pts="2">Der mittlere Platz in einer Sitzreihe, wo man den besten Überblick hat.</p>
+      </div>
+      <!-- *** -->
+      <div id="q03" hidden data-info="Frage 03 von 10">
+        <h1>Wie geht man am besten mit Ausreißern in einem Datensatz um?</h1>
+        <figure>
+          <img src="./img-q07.jpg" alt="Bunte Punkte zufallsverteilt." />
+        </figure>
+        <p data-pts="1">Es sing nur lästige Punkte, die man einfach ignorieren sollte.</p>
+        <p data-pts="2">Ich glaube, das sind einfach Fehler in den Daten.</p>
+        <p data-pts="3">Sie können Trends verfälschen oder uns auf interessante Abweichungen hinweisen.</p>
+        <p data-pts="4">
+          Sie können Anomalien identifizieren und die Robustheit von Modellen testen.
+        </p>
+      </div>
+      <!-- *** -->
+      <div id="q04" hidden data-info="Frage 04 von 10">
+        <h1>Wie oft ist bei Daten Korrelation gleich Kausalität?</h1>
+        <figure>
+          <img src="./img-q08.png" alt="Korrelation oder Kausalität?" />
+        </figure>
+        <p data-pts="5">Dies ist eine Annahme, die niemals gemacht werden sollte.</p>
+        <p data-pts="2">Ich denke, ziemlich oft, aber wieso ist noch unklar.</p>
+        <p data-pts="3">
+          Manchmal, aber ich würde gern wissen, wie man dies überprüfen kann.
+        </p>
+        <p data-pts="1">Warum? Untersuchen wir die Korrelation im Vergleich zu früheren Erfahrungen?</p>
+      </div>
+      <!-- *** -->
+      <div id="q05" hidden data-info="Frage 05 von 10">
+        <h1>Was halten Sie von Daten&shy;visualisierung?</h1>
+        <figure>
+          <img src="./img-q09.jpg" alt="Netz von Punkten unterschiedlicher Größe." />
+        </figure>
+        <p data-pts="1">Ich weiß nicht, wovon Sie sprechen.</p>
+        <p data-pts="3">Ich erstelle sie, aber ich bin nicht so gut, wie ich sein möchte.</p>
+        <p data-pts="4">Ich würde lieber programmatische Visualisierungen erstellen.</p>
+        <p data-pts="2">Ich möchte grundlegende Datenvisualisierungen erstellen können.</p>
+      </div>
+      <!-- *** -->
+      <div id="q06" hidden data-info="Frage 06 von 10">
+        <h1>Fühlen Sie sich von Daten überwältigt?</h1>
+        <figure>
+          <img src="./img-q03.jpg" alt="Erschöpfter Mensch, Kopf auf einem Tisch voller Dokumente und Schaubilder" />
+        </figure>
+        <p data-pts="2">Öfter – durch die Vielzahl von Anfragen beeinflusst.</p>
+        <p data-pts="3">Ich gestehe, dass es mir manchmal Schwierigkeiten bereitet, aber ich behalte die Kontrolle.</p>
+        <p data-pts="1">Ja, immer wenn die monatlichen Rechnungen eintreffen.</p>
+        <p data-pts="4">Daten können zwar eine Herausforderung darstellen, aber sie sind auch wertvoll.</p>
+      </div>
+      <!-- *** -->
+      <div id="q07" hidden data-info="Frage 07 von 10">
+        <figure>
+          <img src="./img-q02.jpg" alt="Datenströme, die farblich sortiert und gruppiert werden" />
+        </figure>
+        <h1>Wie viel Erfahrung mit Datenaufbereitung haben Sie?</h1>
+        <p data-pts="2">Ich nutze Daten selten, wenn sie mir bereitgestellt werden.</p>
+        <p data-pts="1">Daten sind für meine Arbeit nicht entscheidend, also verlasse ich mich nicht auf sie.</p>
+        <p data-pts="4">
+          Ich bin geschickt im Umgang mit Daten und werde oft gebeten, meine Erkenntnisse weiterzugeben.
+        </p>
+        <p data-pts="3">Ich habe Zugang zu allen Daten, die ich mir nur wünschen kann.</p>
+      </div>
+      <!-- *** -->
+      <div id="q08" hidden data-info="Frage 08 von 10">
+        <h1>Sind Sie der Meinung, dass das Verstehen von Daten genauso wichtig ist, wie Lesen oder Schreiben?</h1>
+        <figure>
+          <img src="./img-q04.jpg" alt="Datenvisualisierung und -erklärung" />
+        </figure>
+        <p data-pts="4">Datenverständnis ist nahezu gleichwertig zu Lesen oder Schreiben.</p>
+        <p data-pts="3">Heute noch nicht unbedingt notwendig, aber in der Zukunft entscheidend.</p>
+        <p data-pts="1">Datenverständnis spielt kaum eine Rolle.</p>
+        <p data-pts="2">Es ist noch nicht allgemein verbreitet; wird zukünftig vielleicht eine größere Rolle spielen?</p>
+      </div>
+      <!-- *** -->
+      <div id="q09" hidden data-info="Frage 09 von 10">
+        <h1>Wie wichtig ist die Fähigkeit, mit Daten Geschichten zu erzählen?</h1>
+        <figure>
+          <img src="./img-q05.jpg" alt="Datenpipelines" />
+        </figure>
+        <p data-pts="4">Es ist eine wichtige Fähigkeit, die es einfacher macht, Ergebnisse zu teilen.</p>
+        <p data-pts="2">Warum sollten wir Geschichten brauchen? Daten sind Daten.</p>
+        <p data-pts="3">Ich denke, es kann hilfreich sein, aber ich weiß nicht, wie.</p>
+        <p data-pts="1">Geschichtenerzählen... das macht man mit Daten?</p>
+      </div>
+      <!-- *** -->
+      <div id="q10" hidden data-info="Frage 10 von 10">
+        <h1>
+          Können Vorhersagen durch vorausschauende Analysen, und die Erkennung von Mustern und Trends, verbessert werden?
+        </h1>
+        <figure>
+          <img src="./img-q10.jpg" alt="Kristallkugel" />
+        </figure>
+        <p data-pts="1">Ich denke, dass mein Bauchgefühl ein viel besserer Indikator ist.</p>
+        <p data-pts="2">
+          Ich glaube, dass Vorhersagen und Wahrscheinlichkeiten hilfreich sein können, aber sie erscheinen mir unübersichtlich.
+        </p>
+        <p data-pts="4">Prädiktive Analytik ist für den Erfolg von Unternehmen unerlässlich.</p>
+        <p data-pts="3">Ich möchte meine Fähigkeiten in der prädiktiven Analytik ausbauen.</p>
+      </div>
+      <!-- *** -->
+      <div id="results" hidden class="card">
+        <h1>Ergebnis: <span id="sum">xy</span> von 42 Punkten</h1>
+        <p>Diese Punktzahl entspricht in etwa folgendem Profil:</p>
+        <div id="type1" hidden>
+          <figure class="svg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+              <g stroke-width="2" stroke="#d55" fill="#c33">
+                <path d="M64.1 83.3c-7.82 0-14.92 3.4-18.1 8.7a2 2 0 1 0 3.43 2c2.47-4.09 8.23-6.73 14.67-6.73 6.07 0 11.69 2.44 14.32 6.21a2 2 0 1 0 3.28-2.28c-3.4-4.86-10.15-7.9-17.6-7.9zM48.59 70.41a2 2 0 0 0 2.82-2.82L44.83 61l6.58-6.59a2 2 0 0 0-2.82-2.82L42 58.17l-6.59-6.58a2 2 0 0 0-2.82 2.82L39.17 61l-6.58 6.59a2 2 0 1 0 2.82 2.82L42 63.83zm46.82-18.82a2 2 0 0 0-2.82 0L86 58.17l-6.59-6.58a2 2 0 0 0-2.82 2.82L83.17 61l-6.58 6.59a2 2 0 1 0 2.82 2.82L86 63.83l6.59 6.58a2 2 0 0 0 2.82-2.82L88.83 61l6.58-6.59a2 2 0 0 0 0-2.82z" />
+                <path d="M120 24H53a2.73 2.73 0 0 1-3-3v-6a6.7 6.7 0 0 0-7-7H7a6.7 6.7 0 0 0-7 7v97.25a8.31 8.31 0 0 0 2.4 5.8 6.44 6.44 0 0 0 4.11 1.89A2 2 0 0 0 7 120h114c4.32 0 7-4.15 7-8V32c0-5.08-2.92-8-8-8zm4 88c0 1.93-1.21 4-3 4H7.43a2.49 2.49 0 0 0-.43 0 2.37 2.37 0 0 1-1.76-.75 4.3 4.3 0 0 1-1.21-3V15a2.73 2.73 0 0 1 3-3H43a2.73 2.73 0 0 1 3 3v6a6.7 6.7 0 0 0 7 7h67c2.88 0 4 1.12 4 4z" />
+              </g>
+            </svg>
+          </figure>
+          <h2 class="inverted center">Daten-Verweigerer (10-12 Punkte)</h2>
+          <p>
+            Daten-Verweigerer stehen dem Wert datengestützter Entscheidungen und Prozesse oft skeptisch gegenüber. Sie müssen die Vorteile der Verwendung von Daten erkennen, um ihre Intuition und ihr Erfahrungswissen, auf das sie sich normalerweise verlassen, zu prüfen. Bewusstseinsschulung ist die Voraussetzung für die Überwindung von Hindernissen für Veränderungen. Daten-Verweigerer müssen verstehen, dass sie ihre vorhandenen Stärken nutzen können, wenn sie mit der grundlegenden Arbeit an der Datenkompetenz beginnen.
+          </p>
+        </div>
+        <!-- *** -->
+        <div id="type2" hidden>
+          <figure class="svg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+              <path fill="#ffdb80" d="M62.2 56.3a2.018 2.018 0 0 1-.77-2.03c3.92-17.97-10.66-26.95-10.81-27.04a1.976 1.976 0 0 1-.96-1.92 8.3 8.3 0 0 0-.18-2.93 6.138 6.138 0 0 1-3.62 2.19 2.008 2.008 0 0 1-2.28-2.06 10.795 10.795 0 0 0-.92-4.03l-1.88 3.68a1.998 1.998 0 0 1-3.56 0l-1.88-3.69a11.073 11.073 0 0 0-.93 4.05 2.008 2.008 0 0 1-2.28 2.05 6.092 6.092 0 0 1-3.61-2.19 8.072 8.072 0 0 0-.18 2.93 1.994 1.994 0 0 1-.96 1.92c-.6.37-14.72 9.15-10.82 27.04a1.981 1.981 0 0 1-.77 2.03 20.572 20.572 0 0 0-7.04 12.59l4.2 3.35 12.02-7.85a1.999 1.999 0 0 1 2.37.13l13.15 10.84L51.63 66a1.999 1.999 0 0 1 2.39-.14l10.16 6.72 5-3.82A20.915 20.915 0 0 0 62.2 56.3zm-14.98-3.51l-3.9 3a7.132 7.132 0 0 1-4.32 1.4 7.039 7.039 0 0 1-4.31-1.4l-3.91-3a2 2 0 0 1 0-3.17l3.9-3.01a7.371 7.371 0 0 1 8.63 0l3.91 3.01a2 2 0 0 1 0 3.17z" />
+              <path fill="#2d4356" d="M82 38.09a2.008 2.008 0 0 0-1.59 3.22l8.12 10.58-6.73 10.15a1.999 1.999 0 0 0 .14 2.39l9.37 11.13L80.46 88.7a1.983 1.983 0 0 0-.13 2.36l7.86 12.01-7.75 9.69A1.994 1.994 0 0 0 82 116c25.36 0 46-17.47 46-38.95s-20.64-38.96-46-38.96zm4.31 73.72l5.91-7.38a2.014 2.014 0 0 0 .11-2.34L84.48 90.1l10.98-13.28a1.994 1.994 0 0 0-.01-2.56L85.96 63l6.69-10.09a2 2 0 0 0-.08-2.32l-6.38-8.32c20.89 1.81 37.81 17 37.81 34.78 0 17.74-16.86 32.9-37.69 34.76z" />
+              <path fill="#e1ebf4" d="M124 77.05c0 17.74-16.86 32.9-37.69 34.76l5.91-7.38a2.014 2.014 0 0 0 .11-2.34L84.48 90.1l10.98-13.28a1.994 1.994 0 0 0-.01-2.56L85.96 63l6.69-10.09a2 2 0 0 0-.08-2.32l-6.38-8.32c20.89 1.81 37.81 17 37.81 34.78z" />
+              <g fill="#2d4356">
+                <circle cx="30.5" cy="39.218" r="2" />
+                <circle cx="47.5" cy="39.218" r="2" />
+                <path d="M47.22 49.62l-3.91-3.01a7.371 7.371 0 0 0-8.63 0l-3.9 3.01a2 2 0 0 0 0 3.17l3.91 3a7.039 7.039 0 0 0 4.31 1.4 7.132 7.132 0 0 0 4.32-1.4l3.9-3a2 2 0 0 0 0-3.17zm-6.35 3.01a3.316 3.316 0 0 1-3.74 0l-1.85-1.43 1.85-1.42a3.316 3.316 0 0 1 3.74 0l1.85 1.42z" />
+                <path d="M76.89 64.27a2.013 2.013 0 0 0-2.11.2l-2.1 1.61a25.988 25.988 0 0 0-7.1-12.13c3.1-16.99-8.3-26.82-11.87-29.43.09-5.36-3.15-7.75-3.3-7.85a1.994 1.994 0 0 0-3.12 1.19 5.878 5.878 0 0 1-.28.94 27.665 27.665 0 0 0-2.59-5.83 1.988 1.988 0 0 0-1.79-.97 2.009 2.009 0 0 0-1.71 1.09L39 16.85l-1.92-3.76A1.996 1.996 0 0 0 35.37 12a1.961 1.961 0 0 0-1.78.97 27.13 27.13 0 0 0-2.6 5.84 6.317 6.317 0 0 1-.29-.95 1.986 1.986 0 0 0-1.24-1.44 2.01 2.01 0 0 0-1.88.25c-.14.1-3.38 2.49-3.29 7.85-3.57 2.61-14.97 12.44-11.87 29.43A25.868 25.868 0 0 0 5.3 66.14L3.25 64.5A2 2 0 0 0 0 66.06C0 89.63 16.68 116 39 116s39-26.37 39-49.94a2 2 0 0 0-1.11-1.79zm-61.1-7.97a1.981 1.981 0 0 0 .77-2.03c-3.9-17.89 10.22-26.67 10.82-27.04a1.994 1.994 0 0 0 .96-1.92 8.072 8.072 0 0 1 .18-2.93 6.092 6.092 0 0 0 3.61 2.19 2.008 2.008 0 0 0 2.28-2.05 11.073 11.073 0 0 1 .93-4.05l1.88 3.69a1.998 1.998 0 0 0 3.56 0l1.88-3.68a10.795 10.795 0 0 1 .92 4.03 2.008 2.008 0 0 0 2.28 2.06 6.138 6.138 0 0 0 3.62-2.19 8.3 8.3 0 0 1 .18 2.93 1.976 1.976 0 0 0 .96 1.92c.15.09 14.73 9.07 10.81 27.04a2.018 2.018 0 0 0 .77 2.03 20.915 20.915 0 0 1 6.98 12.46l-5 3.82-10.16-6.72a1.999 1.999 0 0 0-2.39.14l-11.14 9.36-13.15-10.84a1.999 1.999 0 0 0-2.37-.13l-12.02 7.85-4.2-3.35a20.572 20.572 0 0 1 7.04-12.59zM39 112C20.29 112 5.99 90.83 4.19 70.37l7.39 5.89a1.983 1.983 0 0 0 2.34.11l12.01-7.83 13.3 10.96a1.994 1.994 0 0 0 2.56-.01l11.27-9.47 10.11 6.67a2 2 0 0 0 2.31-.07l8.34-6.38C72.07 90.75 57.75 112 39 112z" />
+              </g>
+              <path fill="#e1ebf4" d="M73.82 70.24C72.07 90.75 57.75 112 39 112 20.29 112 5.99 90.83 4.19 70.37l7.39 5.89a1.983 1.983 0 0 0 2.34.11l12.01-7.83 13.3 10.96a1.994 1.994 0 0 0 2.56-.01l11.27-9.47 10.11 6.67a2 2 0 0 0 2.31-.07z" />
+              <path fill="#fc785e" d="M42.72 51.2l-1.85 1.43a3.316 3.316 0 0 1-3.74 0l-1.85-1.43 1.85-1.42a3.316 3.316 0 0 1 3.74 0z" />
+              <path fill="#fff" d="M124 77.05c0 .33-.01.67-.02 1-.6-16.87-16.4-31.2-36.12-33.6l-1.67-2.18c20.89 1.81 37.81 17 37.81 34.78z" opacity=".5" />
+              <path fill="#9fa5aa" d="M124 77.05c0 17.74-16.86 32.9-37.69 34.76l1.75-2.19c19.63-2.48 35.32-16.76 35.92-33.57.01.33.02.67.02 1z" opacity=".5" />
+              <path fill="#fff" d="M73.82 70.24c-.06.72-.14 1.45-.24 2.18l-8.1 6.2a2 2 0 0 1-2.31.07l-10.11-6.67-11.27 9.47a1.994 1.994 0 0 1-2.56.01l-13.3-10.96-12.01 7.83a1.983 1.983 0 0 1-2.34-.11l-7.14-5.69c-.11-.73-.19-1.47-.25-2.2l7.39 5.89a1.983 1.983 0 0 0 2.34.11l12.01-7.83 13.3 10.96a1.994 1.994 0 0 0 2.56-.01l11.27-9.47 10.11 6.67a2 2 0 0 0 2.31-.07z" opacity=".5" />
+              <path fill="#f9edd2" d="M28.34 27.31a1.994 1.994 0 0 1-.96 1.92c-.52.32-10.99 6.83-11.48 19.97-.56-14.48 10.94-21.64 11.48-21.97a1.943 1.943 0 0 0 .91-1.26 8.898 8.898 0 0 0 .05 1.34zm33.74 21.97c-.51-13.31-11.33-19.97-11.46-20.05a1.976 1.976 0 0 1-.96-1.92 9.654 9.654 0 0 0 .04-1.4 1.908 1.908 0 0 0 .92 1.32c.14.08 12.03 7.41 11.46 22.05zM49.66 25.31v.05a6.589 6.589 0 0 0-.18-.98 6.138 6.138 0 0 1-3.62 2.19 2.008 2.008 0 0 1-2.28-2.06 10.795 10.795 0 0 0-.92-4.03l-1.88 3.68a1.998 1.998 0 0 1-3.56 0l-1.88-3.69a11.073 11.073 0 0 0-.93 4.05 2.008 2.008 0 0 1-2.28 2.05 6.092 6.092 0 0 1-3.61-2.19 7.309 7.309 0 0 0-.18.93 8.072 8.072 0 0 1 .18-2.93 6.092 6.092 0 0 0 3.61 2.19 2.008 2.008 0 0 0 2.28-2.05 11.073 11.073 0 0 1 .93-4.05l1.88 3.69a1.998 1.998 0 0 0 3.56 0l1.88-3.68a10.795 10.795 0 0 1 .92 4.03 2.008 2.008 0 0 0 2.28 2.06 6.138 6.138 0 0 0 3.62-2.19 8.3 8.3 0 0 1 .18 2.93z" opacity=".5" />
+              <path fill="#9fa5aa" d="M73.82 70.24C72.07 90.75 57.75 112 39 112 20.29 112 5.99 90.83 4.19 70.37l.25.2C7.02 90.32 20.96 110 39 110c18.09 0 32.05-19.78 34.58-39.58z" opacity=".5" />
+            </svg>
+          </figure>
+          <h2 class="inverted center">Daten-Neuling (13-22 Punkte)</h2>
+          <p>
+            Daten-Neulinge befinden sich noch in der Anfangsphase der Datenkompetenz, nachdem sie die Vorteile der Arbeit mit Daten in ihrer derzeitigen Rolle erkannt haben. Sie benötigen grundlegende Kenntnisse über Daten und Analysen sowie über kritisches und analytisches Denken. Daten-Neulinge können dann auf dieser Grundlage mit Fähigkeiten in fortgeschrittenen analytischen Konzepten, Visualisierung und Präsentation von Zusammenhängen aufbauen.
+          </p>
+        </div>
+        <!-- *** -->
+        <div id="type3" hidden>
+          <figure class="svg">
+            <svg enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <g clip-rule="evenodd" fill-rule="evenodd">
+                <path d="m462.564 297.743v-56.473l11.717-9.527 11.719 9.578v56.474l-11.719-9.578z" fill="#d8ecfe" />
+                <path d="m125.514 93.903h122.255c4.706 0 8.556 3.851 8.556 8.556v33.07h-24.743v-26.846h-89.882v26.846h-24.742v-33.07c-.001-4.706 3.849-8.556 8.556-8.556zm-68.695 49.475h259.643c10.824 0 19.681 8.856 19.681 19.681v94.424h-.001c-29.873 0-54.089 24.216-54.089 54.089 0 18.197 8.986 34.295 22.763 44.099h-247.997c-10.824 0-19.681-8.856-19.681-19.681v-172.931c.001-10.825 8.857-19.681 19.681-19.681z" fill="#b47316" />
+                <path d="m47.147 135.528h278.988c11.631 0 21.147 9.517 21.147 21.147v45.481l-160.641 46.575-160.641-46.574v-45.481c0-11.631 9.516-21.148 21.147-21.148z" fill="#ffb229" />
+                <path d="m167.705 229.796h37.871v37.87h-37.871z" fill="#d8ecfe" />
+                <path d="m318.767 205.047h34.749v16.893a90.802 90.802 0 0 1 33.718 13.968l11.946-11.946 24.571 24.571-11.946 11.946a90.799 90.799 0 0 1 13.968 33.718h16.893v34.749h-16.893a90.802 90.802 0 0 1 -13.968 33.718l11.946 11.946-24.571 24.571-11.946-11.946a90.792 90.792 0 0 1 -33.718 13.968v16.893h-34.749v-16.893a90.785 90.785 0 0 1 -33.718-13.968l-11.946 11.946-24.571-24.571 11.946-11.946a90.799 90.799 0 0 1 -13.968-33.718h-16.893v-34.749h16.893a90.785 90.785 0 0 1 13.968-33.718l-11.946-11.946 24.571-24.571 11.946 11.946a90.792 90.792 0 0 1 33.718-13.968zm17.375 52.436c-29.873 0-54.089 24.216-54.089 54.089s24.216 54.089 54.089 54.089 54.089-24.216 54.089-54.089c-.001-29.873-24.217-54.089-54.089-54.089z" fill="#ffb229" />
+                <path d="m238.114 243.376 98.028 20.03 98.029-20.03v-66.416l-98.029 28.428-98.028-28.274z" fill="#565656" />
+                <path d="m190.002 165.557 146.14 42.151 146.14-42.381-146.14-42.38z" fill="#393939" />
+                <path d="m175.705 259.667h21.871v-21.87h-21.871zm300.134-102.188a8.003 8.003 0 0 1 6.443 7.848v62.631l8.78 7.176a7.978 7.978 0 0 1 2.932 6.188h.006v56.474c0 6.664-7.836 10.623-13.277 6.012l-6.47-5.288-6.657 5.412c-5.271 4.285-13.01.328-13.006-6.187h-.026v-56.475a7.99 7.99 0 0 1 3.462-6.588l8.257-6.713v-52.022l-24.112 6.993v60.437h-.025a7.976 7.976 0 0 1 -6.381 7.813l-4.896 1c-1.02 1.983-6.915 7.456-8.907 9.447a99.917 99.917 0 0 1 10.172 24.562h10.534a8 8 0 0 1 8 8v34.749a8 8 0 0 1 -8 8h-10.534a99.933 99.933 0 0 1 -10.172 24.562l7.447 7.447a8 8 0 0 1 0 11.313l-24.571 24.571a8 8 0 0 1 -11.313 0l-7.447-7.447a99.917 99.917 0 0 1 -24.562 10.172v10.534a8 8 0 0 1 -8 8h-34.749a8 8 0 0 1 -8-8v-10.534a99.933 99.933 0 0 1 -24.562-10.172l-7.447 7.447a8 8 0 0 1 -11.313 0l-24.571-24.571a8 8 0 0 1 0-11.313l5.284-5.284h-191.339c-15.24 0-27.681-12.44-27.681-27.681v-124.626l-5.357-1.553a7.974 7.974 0 0 1 -5.754-7.656h-.027v-45.481c0-16.047 13.099-29.147 29.147-29.147h61.81v-25.07c0-9.122 7.434-16.556 16.556-16.556h122.255c9.122 0 16.556 7.434 16.556 16.556v25.07h35.583l33.929-9.893a7.936 7.936 0 0 1 4.524-.025zm-5.275 87.564v36.094a8.011 8.011 0 0 1 7.436.001v-36.031l-3.748-3.063zm-224.45-8.171 90.028 18.395 90.029-18.395v-49.293l-87.217 25.3c-2.905.841-4.057.594-6.96-.401l-85.879-24.77v49.164zm88.434 34.346-14.368-2.936c-8.603 3.169-16.002 8.836-21.32 16.123-13.336 18.274-11.354 43.712 4.691 59.757 17.998 17.998 47.183 17.998 65.181 0 16.045-16.045 18.028-41.484 4.691-59.757-5.318-7.287-12.718-12.954-21.321-16.123l-14.197 2.901a7.935 7.935 0 0 1 -3.357.035zm-37.67-7.697-28.944-5.914a7.98 7.98 0 0 1 -.832 7.341 82.991 82.991 0 0 0 -7.949 14.721 82.764 82.764 0 0 0 -4.713 15.587 8 8 0 0 1 -7.93 6.941h-8.893v18.749h8.893v.013a7.988 7.988 0 0 1 7.844 6.486c1.911 9.957 6.56 21.978 12.547 30.449a8 8 0 0 1 -.766 10.425l-6.29 6.29 13.259 13.259 6.29-6.29.005.005a7.994 7.994 0 0 1 10.12-.974 82.991 82.991 0 0 0 14.721 7.949 82.742 82.742 0 0 0 15.587 4.713 8.002 8.002 0 0 1 6.941 7.93v8.893h18.749v-8.893h.013a7.988 7.988 0 0 1 6.487-7.844c10.296-1.976 21.947-6.538 30.449-12.547a8.001 8.001 0 0 1 10.425.767l6.29 6.29 13.259-13.259-6.29-6.29.005-.005a7.994 7.994 0 0 1 -.974-10.12 82.927 82.927 0 0 0 7.949-14.721 82.818 82.818 0 0 0 4.714-15.587 8.002 8.002 0 0 1 7.93-6.941h8.893v-18.749h-8.893v-.013a7.988 7.988 0 0 1 -7.844-6.487c-1.976-10.295-6.538-21.948-12.547-30.449a8.012 8.012 0 0 1 -1.046-7.639l-28.933 5.912c28.379 23.214 30.712 65.881 4.64 91.954-24.248 24.248-63.558 24.247-87.806 0-26.073-26.072-23.737-68.742 4.64-91.952zm-55.463-11.333c1.018 1.982 6.917 7.457 8.907 9.448a99.917 99.917 0 0 0 -10.172 24.562h-10.534a8 8 0 0 0 -8 8v34.749a8 8 0 0 0 8 8h10.534a99.066 99.066 0 0 0 3.502 10.725h-186.833c-6.408 0-11.681-5.273-11.681-11.681v-119.986l114.567 33.216v18.445a8 8 0 0 0 8 8h37.871a8 8 0 0 0 8-8v-18.445l16.604-4.814a8.003 8.003 0 0 0 6.977 6.911zm-11.301-24.36v-44.735l-33.946-9.791c-8.192-2.152-7.995-13.202-.384-15.414l49.249-14.359h-197.886c-7.215 0-13.147 5.933-13.147 13.147v39.501l125.706 36.446v-2.827a8 8 0 0 1 8-8h37.871a8 8 0 0 1 8 8v2.827zm201.17-58.331 14.379-4.17-109.515-31.759-109.542 31.939 109.537 31.54zm-207.702-41.968v-10.846h-73.882v10.846zm24.186-25.627h-11.939a7.994 7.994 0 0 1 3.753 6.78v18.846h8.743v-25.07zm-110.315 0h-11.939l-.556.556v25.07h8.743v-18.846a7.993 7.993 0 0 1 3.752-6.78z" />
+              </g>
+            </svg>
+          </figure>
+          <h2 class="inverted center">Daten-Fortgeschrittene (23-32 Punkte)</h2>
+          <p>
+            Daten-Fortgeschrittene wollen ihre Kenntnisse in den Bereichen Data-Science, Algorithmen und statistische Analysen vertiefen, um ihre Datenkompetenz zu erhöhen. Mit dem Ziel, zum Daten-Guru aufzusteigen, möchten Daten-Fortgeschrittene auch ihre Führungs-, Mentoring- und allgemeinen Geschäftsfähigkeiten verbessern. Sie möchten ihre Fähigkeiten zum Präsentieren von Zusammenhängen verbessern, um die Macht der Datenkompetenz zu demonstrieren.
+          </p>
+        </div>
+        <!-- *** -->
+        <div id="type4" hidden>
+          <figure class="svg">
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="m456 444.197c-.107 33.206-27.687 59.803-60.894 59.803h-279.106c-33.23 0-60.106-26.989-60-60.197.107-33.206 27.687-59.803 60.894-59.803h17.196c6.46 9.65 17.47 16 29.95 16h183.92c12.519 0 23.537-6.405 29.95-16h18.09c33.23 0 60.106 26.989 60 60.197z" fill="#ffe4cc" />
+              <path d="m395.106 504h-11.106v-60l-112 28-.87-2.62c-4.26-12.77-16.21-21.38-29.66-21.38-11.853 0-17.61 5.423-33.47 16l-80-20v60h-12c-33.138 0-60-26.859-60-60 0-33.124 26.846-60 60-60h18.09c6.46 9.65 17.47 16 29.95 16h183.92c12.519 0 23.537-6.405 29.95-16 18.741 0 40.418-2.512 60.52 17.57 37.682 37.717 10.856 102.43-43.324 102.43z" fill="#fecb82" />
+              <path d="m377.91 384c-6.41 9.591-17.426 16-29.95 16h-183.92c-12.21 0-23.342-6.128-29.95-16-2.47.009-21.52.078-21.85.12-31.546 1.947-56.342 28.194-56.24 60.076.107 33.207 27.687 59.804 60.894 59.804h11.106v-16h-11.224c-39.191 0-59.841-47.19-31.886-75.11 15.07-15.089 34.459-12.89 31.11-12.89 1.264 0 2.456.591 3.214 1.603 6.553 8.744 17.011 14.397 28.786 14.397h196c18.419 0 33.719-13.856 35.76-31.88-3.123-.2-5.662-.12-1.85-.12z" fill="#edac5f" />
+              <path d="m216 488c-12.813 0-18.251-16.312-8-24l-32.572 13.029c-7.234 2.893-7.752 10.971-7.428 10.971-16.912 0-31.775-11.211-36.421-27.472l-3.579-12.528v56h256v-16zm168-124.04c0 19.8-16.087 36.04-36.04 36.04h-183.92c-22.997 0-40.197-21.327-35.18-43.86l10.31-46.43c12.227-54.962 60.988-93.71 116.83-93.71 56.277 0 104.694 39.138 116.83 93.71 11.082 49.909 11.17 48.906 11.17 54.25z" fill="#f9cfac" />
+              <path d="m383.14 356.14-10.31-46.43a119.382 119.382 0 0 0 -29.34-55.69c-11.437-10.157-25.176-18.266-40.18-23.46-.55.76-1.35 1.5-2.36 2.2-.825-.351-3.275-1.305-5.86-2.2-9.096 12.553-69.076 12.352-78.17.01-2.11.72-4.2 1.51-6.26 2.35-27.312 16.319-48.087 43.512-55.49 76.79-11.204 50.457-10.646 47.548-10.94 50.26 1.99 18.02 17.27 32.03 35.81 32.03 198.697 0 185.071.48 191.92-1.18 9.166-7.724 14.141-21.381 11.18-34.68z" fill="#ffe4cc" />
+              <path d="m275.57 400h-27.57c0-4.42 3.58-8 8-8 6.62 0 12-5.38 12-12 0-6.48-5.175-11.834-11.695-11.996-4.161-.104-7.842-3.024-8.262-7.165a8 8 0 0 1 7.957-8.839c24.976 0 37.556 30.429 19.57 48z" fill="#f9cfac" />
+              <path d="m313.78 296 14.22 64h-6.06c-21.092 0-42.126-8.186-57.94-24h-16a81.968 81.968 0 0 1 -57.94 24h-14.06l7.73-34.78c14.88-2.626 19.993-3.429 25.03-4.64 47.31-11.23 83.15-48.99 92.71-95.61 30.579 12.542 55.809 37.879 67.44 71.03z" fill="#fecb82" />
+              <path d="m368.91 296h-3.13c-12.811-29.544-36.9-52.292-66.05-63.73.66-2.41 1.24-4.84 1.74-7.3 30.579 12.542 55.809 37.879 67.44 71.03z" fill="#edac5f" />
+              <path d="m344 360h-16c-12.664-57.023-9.477-42.684-14.22-64h14.22zm-16-208.26c-3.914 7.789-7.218 11.711-16.5 24.26h-1.82c-6.89 23.13-28.3 40-53.68 40-25.409 0-46.815-16.931-53.68-40h-1.82l-9.32-12.6c-32.88-44.47-9.2-105.12 40.82-119.99v-10.86c0-21.631 25.721-32.735 40.97-17.52 8.318 8.337 7.03 16.894 7.03 28.38 45.77 13.61 69.48 65.54 48 108.33z" fill="#f9cfac" />
+              <path d="m312 120v24c0 30.874-25.256 56.919-56.13 56.849-23.251-.053-39.87-18.858-39.87-40.027 0-33.228 26.235-56.822 56-56.822h23.977c8.834 0 16.01 7.153 16.023 16z" fill="#ffe4cc" />
+              <path d="m256.554 8.005c-17.902-.306-32.554 14.728-32.554 32.632v15.363h64v-16c0-17.46-14.056-31.699-31.446-31.995z" fill="#797a7a" />
+              <path d="m320.82 163.4-9.32 12.6h-1.82c3.127-10.499 2.32-14.718 2.32-56 0-5.56-.81-10.93-2.32-16h-4.74c-5.447 0-10.488-3.075-12.94-8-2.45-4.9-7.46-8-12.94-8h-46.12c-5.447 0-10.488 3.075-12.94 8-2.45 4.9-7.46 8-12.94 8h-4.74c-3.127 10.499-2.32 14.718-2.32 56 0 5.56.81 10.93 2.32 16h-1.82l-9.32-12.6c-32.88-44.47-9.2-105.12 40.82-119.99 15.066-4.502 32.572-4.61 48 0 50.02 14.87 73.7 75.52 40.82 119.99z" fill="#6d6d6d" />
+              <path d="m396 504h-12v-16h20c27.5 0 49.85-21.283 51.86-48.08 2.332 34.969-25.365 64.08-59.86 64.08zm-67-144c-7.24 0-10.45.103-15.77-.47a81.958 81.958 0 0 1 -44.11-18.82c-4.854-4.101-10.97-5.44-16.62-4.46-10.305 1.635-11.268 9.283-31.08 17.51-17.724 7.346-31.063 6.24-45.42 6.24l7.73-34.78 16.65-2.93-1.8 4.84c-1.35 3.63 1.23 7.53 5.11 7.72a81.61 81.61 0 0 0 17.73-5.09c19.618-8.146 20.844-15.886 31.08-17.51 5.61-.973 11.715.317 16.62 4.46 14.633 12.322 32.936 19.29 53.88 19.29z" fill="#edac5f" />
+              <path d="m207.81 289.74-7.22 32.51-16.86 2.97 8.46-38.96c.96-4.31 5.23-7.03 9.54-6.07a8 8 0 0 1 6.08 9.55z" fill="#f9cfac" />
+              <path d="m152.881 274.573a8 8 0 0 0 11.101-2.184c.474-.707.966-1.395 1.467-2.083a8 8 0 1 0 -12.939-9.411 84.702 84.702 0 0 0 -1.813 2.577 8.001 8.001 0 0 0 2.184 11.101z" />
+              <path d="m504 496h-64.248c48.223-40.639 19.812-120-43.752-120h-5.672c3.94-13.929 1.086-19.501-9.689-68.028-9.922-44.593-43.331-81.556-88.975-94.857 10.89-7.336 19.401-17.934 24.147-30.376 1.661-1.062 1.228-.772 11.442-14.588 35.506-48.029 11.152-111.844-39.253-130.544v-5.607c0-17.645-14.355-32-32-32s-32 14.355-32 32v5.607c-50.419 18.705-74.747 82.531-39.253 130.544 10.253 13.869 9.78 13.526 11.442 14.588 4.744 12.435 13.247 23.028 24.127 30.363a127.71 127.71 0 0 0 -46.647 25.005 8 8 0 1 0 10.322 12.225c29.508-24.916 70.336-33.184 108.054-20.313-11.586 43.55-46.964 76.252-91.856 84.172l-6.052 1.068 5.672-25.524a8 8 0 0 0 -15.619-3.471l-14.608 65.735h-9.582a8 8 0 0 0 0 16h30.059c24.024 0 46.61-9.355 63.598-26.343a7.97 7.97 0 0 0 2.343-5.654 7.976 7.976 0 0 0 2.343 5.654c16.988 16.989 39.574 26.344 63.598 26.344h30.059a8 8 0 0 0 0-16h-9.583l-10.667-48h31.315a110.431 110.431 0 0 1 1.955 7.444c11.302 50.898 10.98 48.346 10.98 52.516 0 15.487-12.552 28.04-28.04 28.04h-66.667a27.824 27.824 0 0 0 2.707-12c0-27.117-36-36.192-36-20a8 8 0 0 0 8 8c6.627 0 12 5.373 12 12 0 6.617-5.383 12-12 12h-91.96c-17.891 0-31.265-16.617-27.371-34.126 10.584-47.663 11.059-51.509 14.713-61.27a8.001 8.001 0 0 0 -14.985-5.609c-4.131 11.038-4.413 14.171-15.347 63.406a43.896 43.896 0 0 0 .636 21.598h-5.686c-62.959 0-92.265 79.067-43.805 120h-64.195a8 8 0 0 0 0 16h496a8 8 0 0 0 0-15.999zm-264-464c0-8.823 7.178-16 16-16s16 7.177 16 16c0 3.279 1.066-.52-18.907.041-14.55.407-13.093 2.719-13.093-.041zm-48.944 55.809c25.882-53.16 103.955-53.267 129.889 0 9.832 20.194 9.34 42.685-.944 61.944-.001-32.179 1.79-53.753-10.321-53.753-4.176 0-8.372.745-10.525-3.578-3.831-7.662-11.531-12.422-20.095-12.422-49.739 0-50.692-1.088-57.948 3.362-9.339 5.795-7.229 12.638-14.052 12.638h-4.74c-12.178 0-10.32 21.74-10.32 53.752-10.285-19.258-10.776-41.75-.944-61.943zm16.944 72.191c0-43.899-.224-42.739.672-48.057 7.91-.556 14.894-5.188 18.489-12.377a6.43 6.43 0 0 1 2.352-2.587c2.236-1.372-.36-.979 49.547-.979 6.802 0 4.701 6.836 14.088 12.66a22.581 22.581 0 0 0 10.179 3.282c.944 5.592.673 4.943.673 48.058 0 26.467-21.533 48-48 48s-48-21.533-48-48zm120.195 128-.386-1.735a7.998 7.998 0 0 0 -9.545-6.074 8 8 0 0 0 -6.074 9.545l13.837 62.264h-4.086c-19.75 0-38.318-7.691-52.284-21.657-5.053-5.053-13.654-1.408-13.657 5.654-.002-7.061-8.601-10.708-13.657-5.654-13.966 13.966-32.534 21.657-52.284 21.657h-4.086l4.407-19.83 12.591-2.222c50.958-8.991 90.462-46.372 103.948-93.628 22.4 11.455 39.635 29.722 50.029 51.68zm-146.138 177.761-8.032 3.213c-10.907 4.363-16.325 16.147-13.11 27.026h-24.915v-41.754zm.254 30.239c-6.891 0-8.788-9.593-2.344-12.171 33.157-13.263 31.479-12.515 32.47-13.173 16.95-11.3 20.164-14.656 29.028-14.656a23.234 23.234 0 0 1 22.07 15.907l.874 2.623a8 8 0 0 0 9.53 5.232l102.061-25.516v41.754zm209.689 0v-45.754l9.94-2.485a8 8 0 0 0 -3.881-15.522l-121.081 30.27a39.21 39.21 0 0 0 -35.512-22.509c-14.295 0-21.768 6.587-34.959 15.38l-92.567-23.142a8 8 0 1 0 -3.881 15.522l9.94 2.485v45.755h-4c-28.806 0-52-23.324-52-52 0-28.673 23.327-52 52-52h14.106c8.084 9.767 20.294 16 33.934 16h183.92c13.287 0 25.538-5.851 33.952-16 16.337 0 33.851-1.767 50.858 15.224 32.477 32.507 9.664 88.776-36.769 88.776z" />
+            </svg>
+          </figure>
+          <h2 class="inverted center">Daten-Guru (33-42 Punkte)</h2>
+          <p>
+            Die datenkompetentesten Mitarbeiter verfügen über fortgeschrittene Fähigkeiten und Erfahrungen in der Datenanalyse - einige sind vielleicht sogar Datenwissenschaftler. Unterstützen Sie ihre kontinuierliche Weiterbildung in den Bereichen Erklärungen, Algorithmen und den neuesten Methoden der Datenanalyse. Helfen Sie den Daten-Gurus bei der Entwicklung von Führungs- und Mentoring-Fähigkeiten, damit sie als Multiplikatoren dienen und andere dabei unterstützen können, Ihr Unternehmen mit Daten zu leiten.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Scripts, inline - as I'm still lazy -->
+  <script type="text/javascript">
+  sum = 0;
+  document.querySelectorAll("[data-pts]").forEach((xb) => {
+    xb.addEventListener("click", clck_nxt);
+  });
+  document.querySelector("#tgl").addEventListener("click", tgl);
+
+  function clck_nxt(el) {
+    // console.log("el: ", el);
+    // console.log("this: ", this);
+    sum += Number(this.getAttribute("data-pts"));
+    document.getElementById("sum").innerText = sum;
+    // console.log(sum);
+    let q = this.closest("[data-info]");
+    let nxt_q = q.nextElementSibling;
+    q.hidden = true;
+    nxt_q.hidden = false;
+    document.body.style.backgroundPositionY = "-" + 200 * Number(q.id.split("q")[1]) + "px";
+    // console.log(q.id);
+    if (nxt_q.id == "results") {
+      if (sum >= 33) {
+        document.getElementById("type4").hidden = false;
+      } else if (sum >= 23) {
+        document.getElementById("type3").hidden = false;
+      } else if (sum >= 13) {
+        document.getElementById("type2").hidden = false;
+      } else {
+        document.getElementById("type1").hidden = false;
+      }
+    }
+  }
+
+  function tgl(argument) {
+    if (document.querySelector("#tgl_pts")) {
+      document.querySelector("#tgl_pts").remove();
+    } else {
+      const tgl_pts = document.createElement("style");
+      tgl_pts.id = "tgl_pts";
+      document.querySelector("body").append(tgl_pts);
+      tgl_pts.innerHTML = 'p[data-pts]:after {content: " ["attr(data-pts)"]"}';
+    }
+  }
+
+  function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+    return array;
+  }
+
+  document.querySelectorAll('div[data-info]').forEach(div => {
+    const pElements = Array.from(div.querySelectorAll('p[data-pts]'));
+    shuffle(pElements).forEach(p => div.appendChild(p));
+  });
+
+  // // Function to shuffle an array
+  // function shuffle(array) {
+  //   for (let i = array.length - 1; i > 0; i--) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     [array[i], array[j]] = [array[j], array[i]];
+  //   }
+  //   return array;
+  // }
+
+  // // Get all div elements with data-info attribute
+  // const divElements = document.querySelectorAll("div[data-info]");
+
+  // divElements.forEach((div) => {
+  //   // Get all p elements with data-pts attribute within the div
+  //   const pElements = div.querySelectorAll("p[data-pts]");
+
+  //   // Convert NodeList to an array
+  //   const pArray = Array.from(pElements);
+
+  //   // Shuffle the array
+  //   const shuffledArray = shuffle(pArray);
+
+  //   // Append shuffled elements back to the div
+  //   shuffledArray.forEach((p) => {
+  //     div.appendChild(p);
+  //   });
+  // });
+  </script>
+</body>
+
+</html>
