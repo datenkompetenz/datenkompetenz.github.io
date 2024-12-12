@@ -6,181 +6,181 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Datenkompetenzquiz</title>
   <!-- Styles - inline, as I'm lazy now -->
-  <style type="text/css">
-  /* mulish-regular - latin */
-  @font-face {
-    font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    src: url('./mulish-v13-latin-regular.woff2') format('woff2');
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
+  <style type="text/css"> 
+    /* mulish-regular - latin */
+    @font-face {
+      font-display: swap;
+      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'Mulish';
+      font-style: normal;
+      font-weight: 400;
+      src: url('./mulish-v13-latin-regular.woff2') format('woff2');
+      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
 
-  /* mulish-700 - latin */
-  @font-face {
-    font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 700;
-    src: url('./mulish-v13-latin-700.woff2') format('woff2');
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
+    /* mulish-700 - latin */
+    @font-face {
+      font-display: swap;
+      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'Mulish';
+      font-style: normal;
+      font-weight: 700;
+      src: url('./mulish-v13-latin-700.woff2') format('woff2');
+      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
 
-  body {
-    background: #f7f7f7;
-    font-size: inherit;
-    box-sizing: border-box;
-    font-size: 18px;
-    font-family: Mulish, Muli, "Avenir Next", Avenir, "Noto Sans", "Segoe UI", sans-serif;
-    background-image: url("./bg5.jpg");
-    transition: background-position-y .667s cubic-bezier(0.4, 0, 0.2, 1);
-    background-size: 100%;
-    background-attachment: fixed;
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    max-width: 980px;
-    background: #fefefe;
-    margin: 1.5rem auto;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 10px whitesmoke;
-    min-height: 50rem;
-    overflow-wrap: break-word;
-    hyphens: manual;
-  }
-
-  img {
-    width: 100%;
-    transition: filter 1s;
-  }
-
-  img#logo {
-    display: block;
-    height: auto;
-    width: auto;
-    margin: 0 auto;
-  }
-
-  img:hover {
-    filter: hue-rotate(-45deg);
-  }
-
-  *,
-  *::before,
-  *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-  }
-
-  ::selection {
-    background-color: #b95555;
-    color: #fcfcfc;
-  }
-
-  h1,
-  h2,
-  h3,
-  p {
-    margin: 0.5em 0;
-  }
-
-  section#survey {
-    position: relative;
-  }
-
-  #survey h1 {
-    min-height: 7.5rem;
-    text-align: center;
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  p[data-pts] {
-    text-align: center;
-    padding: 1.2em .2em;
-    border: 1px solid #333;
-    border-radius: 4px;
-    box-shadow: 2px 2px #999;
-    cursor: pointer;
-    user-select: none;
-    font-size: 1.25rem;
-    transition: color .25s, background-color .25s;
-  }
-
-  #tgl {
-    cursor: pointer;
-    user-select: none;
-  }
-
-  .inverted,
-  p[data-pts]:hover,
-  p[data-pts]:focus {
-    color: white;
-    background-color: #0072bc;
-/*    background-color: (142 30% 40% / 1);*/
-  }
-
-  .inverted {
-    padding: 0.15em;
-    border-radius: 4px;
-  }
-
-  div[data-info]:before {
-    content: attr(data-info);
-    color: #047; 
-/*  hsl(204 100% 23% / 1) */
-/*  color:  #595;*/
-    font-size: 0.95rem;
-    top: -0.2rem;
-    right: 0.2rem; 
-    position: absolute;
-  }
-
-  #results p {
-    font-size: 1.33rem;
-    line-height: 1.5;
-  }
-
-  figure.svg {
-    max-width: 320px;
-    margin: 0 auto;
-  }
-
-  @media screen and (max-width: 1079px) {
     body {
-      padding-bottom: 8rem;
+      background: #f7f7f7;
+      font-size: inherit;
+      box-sizing: border-box;
+      font-size: 18px;
+      font-family: Mulish, Muli, "Avenir Next", Avenir, "Noto Sans", "Segoe UI", sans-serif;
+      background-image: url("./bg5.jpg");
+      transition: background-position-y .667s cubic-bezier(0.4, 0, 0.2, 1);
+      background-size: 100%;
+      background-attachment: fixed;
     }
 
     main {
-      margin: 1.5rem 2rem;
-      word-wrap: break-word;
+      display: flex;
+      flex-direction: column;
+      max-width: 980px;
+      background: #fefefe;
+      margin: 1.5rem auto;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 10px whitesmoke;
+      min-height: 50rem;
       overflow-wrap: break-word;
+      hyphens: manual;
     }
 
-    .inverted {
-      padding: 0.33em;
-      border-radius: 8px;
+    img {
+      width: 100%;
+      transition: filter 1s;
+    }
+
+    img#logo {
+      display: block;
+      height: auto;
+      width: auto;
+      margin: 0 auto;
+    }
+
+    img:hover {
+      filter: hue-rotate(-45deg);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+    ::selection {
+      background-color: #b95555;
+      color: #fcfcfc;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0.5em 0;
+    }
+
+    section#survey {
+      position: relative;
+    }
+
+    #survey h1 {
+      min-height: 7.5rem;
+      text-align: center;
+    }
+
+    .center {
+      text-align: center;
     }
 
     p[data-pts] {
-      border: 1px dotted #777;
-      border-radius: 8px;
+      text-align: center;
+      padding: 1.2em .2em;
+      border: 1px solid #333;
+      border-radius: 4px;
+      box-shadow: 2px 2px #999;
+      cursor: pointer;
+      user-select: none;
+      font-size: 1.25rem;
+      transition: color .25s, background-color .25s;
+    }
+
+    #tgl {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .inverted,
+    p[data-pts]:hover,
+    p[data-pts]:focus {
+      color: white;
+      background-color: #0072bc;
+  /*    background-color: (142 30% 40% / 1);*/
+    }
+
+    .inverted {
+      padding: 0.15em;
+      border-radius: 4px;
+    }
+
+    div[data-info]:before {
+      content: attr(data-info);
+      color: #047; 
+  /*  hsl(204 100% 23% / 1) */
+  /*  color:  #595;*/
+      font-size: 0.95rem;
+      top: -0.2rem;
+      right: 0.2rem; 
+      position: absolute;
+    }
+
+    #results p {
+      font-size: 1.33rem;
+      line-height: 1.5;
     }
 
     figure.svg {
-      max-width: 256px;
+      max-width: 320px;
       margin: 0 auto;
     }
-  }
+
+    @media screen and (max-width: 1079px) {
+      body {
+        padding-bottom: 8rem;
+      }
+
+      main {
+        margin: 1.5rem 2rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .inverted {
+        padding: 0.33em;
+        border-radius: 8px;
+      }
+
+      p[data-pts] {
+        border: 1px dotted #777;
+        border-radius: 8px;
+      }
+
+      figure.svg {
+        max-width: 256px;
+        margin: 0 auto;
+      }
+    }
   </style>
 </head>
 
@@ -327,7 +327,7 @@
               </g>
             </svg>
           </figure>
-          <h2 class="inverted center">Daten-Verweigerer (10-12 Punkte)</h2>
+          <h2 class="inverted center">Daten-Verweigerer (10-15 Punkte)</h2>
           <p>
             Daten-Verweigerer stehen dem Wert datengestützter Entscheidungen und Prozesse oft skeptisch gegenüber. Sie müssen die Vorteile der Verwendung von Daten erkennen, um ihre Intuition und ihr Erfahrungswissen, auf das sie sich normalerweise verlassen, zu prüfen. Bewusstseinsschulung ist die Voraussetzung für die Überwindung von Hindernissen für Veränderungen. Daten-Verweigerer müssen verstehen, dass sie ihre vorhandenen Stärken nutzen können, wenn sie mit der grundlegenden Arbeit an der Datenkompetenz beginnen.
           </p>
@@ -354,7 +354,7 @@
               <path fill="#9fa5aa" d="M73.82 70.24C72.07 90.75 57.75 112 39 112 20.29 112 5.99 90.83 4.19 70.37l.25.2C7.02 90.32 20.96 110 39 110c18.09 0 32.05-19.78 34.58-39.58z" opacity=".5" />
             </svg>
           </figure>
-          <h2 class="inverted center">Daten-Neuling (13-22 Punkte)</h2>
+          <h2 class="inverted center">Daten-Neuling (16-26 Punkte)</h2>
           <p>
             Daten-Neulinge befinden sich noch in der Anfangsphase der Datenkompetenz, nachdem sie die Vorteile der Arbeit mit Daten in ihrer derzeitigen Rolle erkannt haben. Sie benötigen grundlegende Kenntnisse über Daten und Analysen sowie über kritisches und analytisches Denken. Daten-Neulinge können dann auf dieser Grundlage mit Fähigkeiten in fortgeschrittenen analytischen Konzepten, Visualisierung und Präsentation von Zusammenhängen aufbauen.
           </p>
@@ -375,7 +375,7 @@
               </g>
             </svg>
           </figure>
-          <h2 class="inverted center">Daten-Fortgeschrittene (23-32 Punkte)</h2>
+          <h2 class="inverted center">Daten-Fortgeschrittene (27-39 Punkte)</h2>
           <p>
             Daten-Fortgeschrittene wollen ihre Kenntnisse in den Bereichen Data-Science, Algorithmen und statistische Analysen vertiefen, um ihre Datenkompetenz zu erhöhen. Mit dem Ziel, zum Daten-Guru aufzusteigen, möchten Daten-Fortgeschrittene auch ihre Führungs-, Mentoring- und allgemeinen Geschäftsfähigkeiten verbessern. Sie möchten ihre Fähigkeiten zum Präsentieren von Zusammenhängen verbessern, um die Macht der Datenkompetenz zu demonstrieren.
           </p>
@@ -402,7 +402,7 @@
               <path d="m504 496h-64.248c48.223-40.639 19.812-120-43.752-120h-5.672c3.94-13.929 1.086-19.501-9.689-68.028-9.922-44.593-43.331-81.556-88.975-94.857 10.89-7.336 19.401-17.934 24.147-30.376 1.661-1.062 1.228-.772 11.442-14.588 35.506-48.029 11.152-111.844-39.253-130.544v-5.607c0-17.645-14.355-32-32-32s-32 14.355-32 32v5.607c-50.419 18.705-74.747 82.531-39.253 130.544 10.253 13.869 9.78 13.526 11.442 14.588 4.744 12.435 13.247 23.028 24.127 30.363a127.71 127.71 0 0 0 -46.647 25.005 8 8 0 1 0 10.322 12.225c29.508-24.916 70.336-33.184 108.054-20.313-11.586 43.55-46.964 76.252-91.856 84.172l-6.052 1.068 5.672-25.524a8 8 0 0 0 -15.619-3.471l-14.608 65.735h-9.582a8 8 0 0 0 0 16h30.059c24.024 0 46.61-9.355 63.598-26.343a7.97 7.97 0 0 0 2.343-5.654 7.976 7.976 0 0 0 2.343 5.654c16.988 16.989 39.574 26.344 63.598 26.344h30.059a8 8 0 0 0 0-16h-9.583l-10.667-48h31.315a110.431 110.431 0 0 1 1.955 7.444c11.302 50.898 10.98 48.346 10.98 52.516 0 15.487-12.552 28.04-28.04 28.04h-66.667a27.824 27.824 0 0 0 2.707-12c0-27.117-36-36.192-36-20a8 8 0 0 0 8 8c6.627 0 12 5.373 12 12 0 6.617-5.383 12-12 12h-91.96c-17.891 0-31.265-16.617-27.371-34.126 10.584-47.663 11.059-51.509 14.713-61.27a8.001 8.001 0 0 0 -14.985-5.609c-4.131 11.038-4.413 14.171-15.347 63.406a43.896 43.896 0 0 0 .636 21.598h-5.686c-62.959 0-92.265 79.067-43.805 120h-64.195a8 8 0 0 0 0 16h496a8 8 0 0 0 0-15.999zm-264-464c0-8.823 7.178-16 16-16s16 7.177 16 16c0 3.279 1.066-.52-18.907.041-14.55.407-13.093 2.719-13.093-.041zm-48.944 55.809c25.882-53.16 103.955-53.267 129.889 0 9.832 20.194 9.34 42.685-.944 61.944-.001-32.179 1.79-53.753-10.321-53.753-4.176 0-8.372.745-10.525-3.578-3.831-7.662-11.531-12.422-20.095-12.422-49.739 0-50.692-1.088-57.948 3.362-9.339 5.795-7.229 12.638-14.052 12.638h-4.74c-12.178 0-10.32 21.74-10.32 53.752-10.285-19.258-10.776-41.75-.944-61.943zm16.944 72.191c0-43.899-.224-42.739.672-48.057 7.91-.556 14.894-5.188 18.489-12.377a6.43 6.43 0 0 1 2.352-2.587c2.236-1.372-.36-.979 49.547-.979 6.802 0 4.701 6.836 14.088 12.66a22.581 22.581 0 0 0 10.179 3.282c.944 5.592.673 4.943.673 48.058 0 26.467-21.533 48-48 48s-48-21.533-48-48zm120.195 128-.386-1.735a7.998 7.998 0 0 0 -9.545-6.074 8 8 0 0 0 -6.074 9.545l13.837 62.264h-4.086c-19.75 0-38.318-7.691-52.284-21.657-5.053-5.053-13.654-1.408-13.657 5.654-.002-7.061-8.601-10.708-13.657-5.654-13.966 13.966-32.534 21.657-52.284 21.657h-4.086l4.407-19.83 12.591-2.222c50.958-8.991 90.462-46.372 103.948-93.628 22.4 11.455 39.635 29.722 50.029 51.68zm-146.138 177.761-8.032 3.213c-10.907 4.363-16.325 16.147-13.11 27.026h-24.915v-41.754zm.254 30.239c-6.891 0-8.788-9.593-2.344-12.171 33.157-13.263 31.479-12.515 32.47-13.173 16.95-11.3 20.164-14.656 29.028-14.656a23.234 23.234 0 0 1 22.07 15.907l.874 2.623a8 8 0 0 0 9.53 5.232l102.061-25.516v41.754zm209.689 0v-45.754l9.94-2.485a8 8 0 0 0 -3.881-15.522l-121.081 30.27a39.21 39.21 0 0 0 -35.512-22.509c-14.295 0-21.768 6.587-34.959 15.38l-92.567-23.142a8 8 0 1 0 -3.881 15.522l9.94 2.485v45.755h-4c-28.806 0-52-23.324-52-52 0-28.673 23.327-52 52-52h14.106c8.084 9.767 20.294 16 33.934 16h183.92c13.287 0 25.538-5.851 33.952-16 16.337 0 33.851-1.767 50.858 15.224 32.477 32.507 9.664 88.776-36.769 88.776z" />
             </svg>
           </figure>
-          <h2 class="inverted center">Daten-Guru (33-42 Punkte)</h2>
+          <h2 class="inverted center">Daten-Guru (40-42 Punkte)</h2>
           <p>
             Die datenkompetentesten Mitarbeiter verfügen über fortgeschrittene Fähigkeiten und Erfahrungen in der Datenanalyse - einige sind vielleicht sogar Datenwissenschaftler. Unterstützen Sie ihre kontinuierliche Weiterbildung in den Bereichen Erklärungen, Algorithmen und den neuesten Methoden der Datenanalyse. Helfen Sie den Daten-Gurus bei der Entwicklung von Führungs- und Mentoring-Fähigkeiten, damit sie als Multiplikatoren dienen und andere dabei unterstützen können, Ihr Unternehmen mit Daten zu leiten.
           </p>
@@ -410,13 +410,18 @@
       </div>
     </section>
   </main>
+   
   <!-- Scripts, inline - as I'm still lazy -->
   <script type="text/javascript">
   sum = 0;
+  // add event listeners to the answer buttons
   document.querySelectorAll("[data-pts]").forEach((xb) => {
     xb.addEventListener("click", clck_nxt);
   });
+
+  // show scores when clicking the #tgl element
   document.querySelector("#tgl").addEventListener("click", tgl);
+
 
   function clck_nxt(el) {
     // console.log("el: ", el);
@@ -431,11 +436,11 @@
     document.body.style.backgroundPositionY = "-" + 200 * Number(q.id.split("q")[1]) + "px";
     // console.log(q.id);
     if (nxt_q.id == "results") {
-      if (sum >= 33) {
+      if (sum >= 40) {
         document.getElementById("type4").hidden = false;
-      } else if (sum >= 23) {
+      } else if (sum >= 27) {
         document.getElementById("type3").hidden = false;
-      } else if (sum >= 13) {
+      } else if (sum >= 16) {
         document.getElementById("type2").hidden = false;
       } else {
         document.getElementById("type1").hidden = false;
@@ -491,6 +496,10 @@
   //     div.appendChild(p);
   //   });
   // });
+
+  // current time
+  // Math.floor(Date.now() / 1000);
+
   </script>
 </body>
 
