@@ -1,7 +1,7 @@
 "use strict";
-
 let sum = 0;
 let tgl_c = 0;
+let result_type;
 // add event listeners to the answer buttons
 document.querySelectorAll("[data-pts]").forEach((xb) => {
   xb.addEventListener("click", clck_nxt);
@@ -13,10 +13,14 @@ document.querySelector("#tgl").addEventListener("click", tgl);
 function clck_nxt(el) {
   let q = this.closest("[data-info]");
   let nxt_q = q.nextElementSibling;
-  q.querySelectorAll("[data-pts]").forEach((x) => x.classList.remove("selected"));
+  q.querySelectorAll("[data-pts]").forEach((x) => {
+    x.classList.remove("selected");
+    x.removeAttribute("selected");
+  });
   this.classList.add("selected");
-  sum += Number(this.getAttribute("data-pts"));
-  document.getElementById("sum").innerText = sum;
+  this.setAttribute("selected", "");
+  // sum += Number(this.getAttribute("data-pts"));
+  // document.getElementById("sum").innerText = sum;
   // console.log(sum);
 
   q.hidden = true;
@@ -24,16 +28,43 @@ function clck_nxt(el) {
   document.body.style.backgroundPositionY = "-" + 200 * Number(q.id.split("q")[1]) + "px";
   // console.log(q.id);
   if (nxt_q.id == "results") {
-    if (sum >= 40) {
-      document.getElementById("type4").hidden = false;
-    } else if (sum >= 27) {
-      document.getElementById("type3").hidden = false;
-    } else if (sum >= 16) {
-      document.getElementById("type2").hidden = false;
-    } else {
-      document.getElementById("type1").hidden = false;
-    }
+    results();
   }
+}
+
+function results() {
+  document.querySelectorAll("[id^='type']").forEach((x) => (x.hidden = true));
+  sum = 0;
+  document.querySelectorAll("p.selected").forEach((x) => (sum += Number(x.getAttribute("data-pts"))));
+  document.getElementById("sum").innerText = sum;
+  if (sum >= 40) {
+    result_type = document.getElementById("type4");
+  } else if (sum >= 27) {
+    result_type = document.getElementById("type3");
+  } else if (sum >= 16) {
+    result_type = document.getElementById("type2");
+  } else {
+    result_type = document.getElementById("type1");
+  }
+  result_type.hidden = false;
+  result_type.setAttribute("selected", "");
+  let full_log = document.querySelector("#survey").innerHTML;
+  send_log(full_log);
+}
+
+function send_log(full_log) {
+  fetch("log_writer.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ log: full_log }),
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
 
 function tgl() {
