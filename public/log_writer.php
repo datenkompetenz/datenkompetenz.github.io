@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["log"])) {
 	$epoch_time = time();
 
 	// Define the file name with epoch time
-	$file_name = "../" . $epoch_time . ".log";
+	$file_name = "../logs/" . $epoch_time . ".log";
 
 	// Get all HTTP headers
 	$headers     = getallheaders();
