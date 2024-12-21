@@ -1,6 +1,7 @@
 "use strict";
 
 let sum = 0;
+let tgl_c = 0;
 // add event listeners to the answer buttons
 document.querySelectorAll("[data-pts]").forEach((xb) => {
   xb.addEventListener("click", clck_nxt);
@@ -10,14 +11,14 @@ document.querySelectorAll("[data-pts]").forEach((xb) => {
 document.querySelector("#tgl").addEventListener("click", tgl);
 
 function clck_nxt(el) {
-  // console.log("el: ", el);
-  // console.log("this: ", this);
+  let q = this.closest("[data-info]");
+  let nxt_q = q.nextElementSibling;
+  q.querySelectorAll("[data-pts]").forEach((x) => x.classList.remove("selected"));
   this.classList.add("selected");
   sum += Number(this.getAttribute("data-pts"));
   document.getElementById("sum").innerText = sum;
   // console.log(sum);
-  let q = this.closest("[data-info]");
-  let nxt_q = q.nextElementSibling;
+
   q.hidden = true;
   nxt_q.hidden = false;
   document.body.style.backgroundPositionY = "-" + 200 * Number(q.id.split("q")[1]) + "px";
@@ -35,14 +36,17 @@ function clck_nxt(el) {
   }
 }
 
-function tgl(argument) {
-  if (document.querySelector("#tgl_pts")) {
-    document.querySelector("#tgl_pts").remove();
-  } else {
-    const tgl_pts = document.createElement("style");
-    tgl_pts.id = "tgl_pts";
-    document.querySelector("body").append(tgl_pts);
-    tgl_pts.innerHTML = 'p[data-pts]:after {content: " ["attr(data-pts)"]"}';
+function tgl() {
+  tgl_c++;
+  if (tgl_c % 3 == 0) {
+    if (document.querySelector("#tgl_pts")) {
+      document.querySelector("#tgl_pts").remove();
+    } else {
+      const tgl_pts = document.createElement("style");
+      tgl_pts.id = "tgl_pts";
+      document.querySelector("body").append(tgl_pts);
+      tgl_pts.innerHTML = 'p[data-pts]:after {content: " ["attr(data-pts)"]"}';
+    }
   }
 }
 

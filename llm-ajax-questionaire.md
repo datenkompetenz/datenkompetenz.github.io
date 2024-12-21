@@ -302,6 +302,8 @@ Feel free to use these examples as a starting point and adjust them to fit your 
 
 > ajax: sending the user-hash, user-name, sum, and a json obj. to a php endpoint; that endpoint appends the data to the file results.csv
 
+---
+
 To achieve this, you'll need to write JavaScript for the AJAX request and PHP for processing the data and appending it to the CSV file. Let's break it down:
 
 ### JavaScript (AJAX Request)

@@ -5,27 +5,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Datenkompetenzquiz</title>
-
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="MyWebSite" />
   <link rel="manifest" href="/site.webmanifest" />
-
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?1734775044">
 </head>
 
 <body>
   <main>
-    <h1 class="center">
+    <section id="hdr">
       <img id="logo" src="ntbs-logo-sm.png" alt="NTT Data Logo - Business Solutions">
-        Entdecken Sie Ihre Daten&shy;kompetenz</h1>
-    <h2 class="center inverted">Daten&shy;aufbereitungs- & Visualisierungs&shy;quiz<span id="tgl">:</span></h2>
+      <h3 class="center">Entdecken Sie Ihre Daten&shy;kompetenz</h3>
+      <h2 id="tgl" class="center inverted">Daten&shy;aufbereitungs- & Visualisierungs&shy;quiz:</h2>
+    </section>
     <section id="survey">
       <div id="q01" data-info="Frage 01 von 10">
         <h1>Was sind Ihre Gedanken beim Anblick dieses Bildes?</h1>
-        <figure>
+        <figure class="sketch" loading="lazy">
           <img src="./img-q01.jpg" alt="Verschiedenste Schaubilder auf einem Bildschirm" />
         </figure>
         <p data-pts="3">Ich wünschte, Excel könnte solche Diagramme erstellen.</p>
@@ -38,7 +37,7 @@
         <h1>
           Was ist ein Median?
         </h1>
-        <figure>
+        <figure class="sketch" loading="lazy">
           <img src="./img-q06.jpg" alt="Erdhälften" />
         </figure>
         <p data-pts="1">Der Längengrad, der die Erde in Ost und West teilt.</p>
@@ -51,7 +50,7 @@
       <!-- *** -->
       <div id="q03" hidden data-info="Frage 03 von 10">
         <h1>Wie geht man am besten mit Ausreißern in einem Datensatz um?</h1>
-        <figure>
+        <figure class="sketch" loading="lazy">
           <img src="./img-q07.jpg" alt="Bunte Punkte zufallsverteilt." />
         </figure>
         <p data-pts="1">Es sing nur lästige Punkte, die man einfach ignorieren sollte.</p>
@@ -64,7 +63,7 @@
       <!-- *** -->
       <div id="q04" hidden data-info="Frage 04 von 10">
         <h1>Wie oft ist bei Daten Korrelation gleich Kausalität?</h1>
-        <figure>
+        <figure class="sketch" loading="lazy">
           <img src="./img-q08.png" alt="Korrelation oder Kausalität?" />
         </figure>
         <p data-pts="5">Dies ist eine Annahme, die niemals gemacht werden sollte.</p>
@@ -77,7 +76,7 @@
       <!-- *** -->
       <div id="q05" hidden data-info="Frage 05 von 10">
         <h1>Was halten Sie von Daten&shy;visualisierung?</h1>
-        <figure>
+        <figure class="sketch" loading="lazy">
           <img src="./img-q09.jpg" alt="Netz von Punkten unterschiedlicher Größe." />
         </figure>
         <p data-pts="1">Ich weiß nicht, wovon Sie sprechen.</p>
@@ -88,7 +87,7 @@
       <!-- *** -->
       <div id="q06" hidden data-info="Frage 06 von 10">
         <h1>Fühlen Sie sich von Daten überwältigt?</h1>
-        <figure>
+        <figure class="sketch" loading="lazy">
           <img src="./img-q03.jpg" alt="Erschöpfter Mensch, Kopf auf einem Tisch voller Dokumente und Schaubilder" />
         </figure>
         <p data-pts="2">Öfter – durch die Vielzahl von Anfragen beeinflusst.</p>
@@ -98,10 +97,10 @@
       </div>
       <!-- *** -->
       <div id="q07" hidden data-info="Frage 07 von 10">
-        <figure>
+        <h1>Wie viel Erfahrung mit Datenaufbereitung haben Sie?</h1>
+        <figure class="sketch" loading="lazy">
           <img src="./img-q02.jpg" alt="Datenströme, die farblich sortiert und gruppiert werden" />
         </figure>
-        <h1>Wie viel Erfahrung mit Datenaufbereitung haben Sie?</h1>
         <p data-pts="2">Ich nutze Daten selten, wenn sie mir bereitgestellt werden.</p>
         <p data-pts="1">Daten sind für meine Arbeit nicht entscheidend, also verlasse ich mich nicht auf sie.</p>
         <p data-pts="4">
@@ -111,19 +110,19 @@
       </div>
       <!-- *** -->
       <div id="q08" hidden data-info="Frage 08 von 10">
-        <h1>Sind Sie der Meinung, dass das Verstehen von Daten genauso wichtig ist, wie Lesen oder Schreiben?</h1>
-        <figure>
+        <h1>Ist Datenverständnis ähnlich wichtig, wie Lesen oder Schreiben?</h1>
+        <figure class="sketch" loading="lazy">
           <img src="./img-q04.jpg" alt="Datenvisualisierung und -erklärung" />
         </figure>
         <p data-pts="4">Datenverständnis ist nahezu gleichwertig zu Lesen oder Schreiben.</p>
         <p data-pts="3">Heute noch nicht unbedingt notwendig, aber in der Zukunft entscheidend.</p>
         <p data-pts="1">Datenverständnis spielt kaum eine Rolle.</p>
-        <p data-pts="2">Es ist noch nicht allgemein verbreitet; wird zukünftig vielleicht eine größere Rolle spielen?</p>
+        <p data-pts="2">Es ist noch nicht allgemein verbreitet; wird zukünftig vielleicht eine größere Rolle spielen.</p>
       </div>
       <!-- *** -->
       <div id="q09" hidden data-info="Frage 09 von 10">
         <h1>Wie wichtig ist die Fähigkeit, mit Daten Geschichten zu erzählen?</h1>
-        <figure>
+        <figure class="sketch" loading="lazy">
           <img src="./img-q05.jpg" alt="Datenpipelines" />
         </figure>
         <p data-pts="4">Es ist eine wichtige Fähigkeit, die es einfacher macht, Ergebnisse zu teilen.</p>
@@ -136,7 +135,7 @@
         <h1>
           Können Vorhersagen durch vorausschauende Analysen, und die Erkennung von Mustern und Trends, verbessert werden?
         </h1>
-        <figure>
+        <figure class="sketch" loading="lazy">
           <img src="./img-q10.jpg" alt="Kristallkugel" />
         </figure>
         <p data-pts="1">Ich denke, dass mein Bauchgefühl ein viel besserer Indikator ist.</p>
@@ -192,7 +191,6 @@
       </div>
     </section>
   </main>
-   
   <script type="text/javascript" src="script.js"></script>
 </body>
 

@@ -1,174 +1,188 @@
-  /* mulish-regular - latin */
-  @font-face {
-    font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    src: url('./mulish-v13-latin-regular.woff2') format('woff2');
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
+/* mulish-regular - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./mulish-v13-latin-regular.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 
-  /* mulish-700 - latin */
-  @font-face {
-    font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 700;
-    src: url('./mulish-v13-latin-700.woff2') format('woff2');
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
+/* mulish-700 - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./mulish-v13-latin-700.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 
+body {
+  background: #f7f7f7;
+  font-size: inherit;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-family: Mulish, Muli, "Avenir Next", Avenir, "Noto Sans", "Segoe UI", sans-serif;
+  background-image: url("./bg5.jpg");
+  transition: background-position-y 0.667s cubic-bezier(0.4, 0, 0.2, 1);
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 980px;
+  background: #fefefe;
+  margin: 1.5rem auto;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 10px whitesmoke;
+  min-height: 50rem;
+  overflow-wrap: break-word;
+  hyphens: manual;
+}
+
+img {
+  width: 100%;
+  transition: filter 1s;
+  user-select: none;
+}
+
+img#logo {
+  display: block;
+  height: auto;
+  width: auto;
+  margin: 0 auto;
+}
+
+img:hover {
+  filter: saturate(1.667); /* hue-rotate(-30deg); */
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+::selection {
+  background-color: #b95555;
+  color: #fcfcfc;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0.5em 0;
+}
+
+section#survey {
+  position: relative;
+}
+
+#survey h1 {
+/*  min-height: 7.5rem;*/
+  text-align: center;
+  padding-bottom: .2em;
+  border-bottom: 2px dashed #0072bc;
+}
+
+.center {
+  text-align: center;
+}
+
+p[data-pts] {
+  text-align: center;
+  padding: 1.2em 0.2em;
+  border: 1px solid #333;
+  border-radius: 4px;
+  box-shadow: 2px 2px #999;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.25rem;
+  transition:
+    color 0.25s,
+    background-color 0.25s;
+}
+
+#tgl {
+/*  cursor: pointer; */
+  user-select: none;
+}
+
+.inverted,
+p[data-pts]:hover,
+p[data-pts]:focus {
+  color: white;
+  background-color: #0072bc;
+  /*    background-color: (142 30% 40% / 1);*/
+}
+
+.selected {
+  background-color: #7ae;
+}
+
+.inverted {
+  padding: 0.15em;
+  border-radius: 4px;
+}
+
+div[data-info]:before {
+  content: attr(data-info);
+  color: #047;
+  /*  hsl(204 100% 23% / 1) */
+  /*  color:  #595;*/
+  font-size: 0.95rem;
+  top: -0.2rem;
+  right: 0.2rem;
+  position: absolute;
+}
+
+#results p {
+  font-size: 1.33rem;
+  line-height: 1.5;
+}
+
+figure.sketch {
+  width: 600px;
+  margin: 0 auto;
+}
+
+figure.svg {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1079px) {
   body {
-    background: #f7f7f7;
-    font-size: inherit;
-    box-sizing: border-box;
-    font-size: 18px;
-    font-family: Mulish, Muli, "Avenir Next", Avenir, "Noto Sans", "Segoe UI", sans-serif;
-    background-image: url("./bg5.jpg");
-    transition: background-position-y .667s cubic-bezier(0.4, 0, 0.2, 1);
-    background-size: 100%;
-    background-attachment: fixed;
+    padding-bottom: 8rem;
   }
 
   main {
-    display: flex;
-    flex-direction: column;
-    max-width: 980px;
-    background: #fefefe;
-    margin: 1.5rem auto;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 10px whitesmoke;
-    min-height: 50rem;
+    margin: 1.5rem 2rem;
+    word-wrap: break-word;
     overflow-wrap: break-word;
-    hyphens: manual;
-  }
-
-  img {
-    width: 100%;
-    transition: filter 1s;
-  }
-
-  img#logo {
-    display: block;
-    height: auto;
-    width: auto;
-    margin: 0 auto;
-  }
-
-  img:hover {
-    filter: hue-rotate(-45deg);
-  }
-
-  *,
-  *::before,
-  *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-  }
-
-  ::selection {
-    background-color: #b95555;
-    color: #fcfcfc;
-  }
-
-  h1,
-  h2,
-  h3,
-  p {
-    margin: 0.5em 0;
-  }
-
-  section#survey {
-    position: relative;
-  }
-
-  #survey h1 {
-    min-height: 7.5rem;
-    text-align: center;
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  p[data-pts] {
-    text-align: center;
-    padding: 1.2em .2em;
-    border: 1px solid #333;
-    border-radius: 4px;
-    box-shadow: 2px 2px #999;
-    cursor: pointer;
-    user-select: none;
-    font-size: 1.25rem;
-    transition: color .25s, background-color .25s;
-  }
-
-  #tgl {
-    cursor: pointer;
-    user-select: none;
-  }
-
-  .inverted,
-  p[data-pts]:hover,
-  p[data-pts]:focus {
-    color: white;
-    background-color: #0072bc;
-    /*    background-color: (142 30% 40% / 1);*/
   }
 
   .inverted {
-    padding: 0.15em;
-    border-radius: 4px;
+    padding: 0.33em;
+    border-radius: 8px;
   }
 
-  div[data-info]:before {
-    content: attr(data-info);
-    color: #047;
-    /*  hsl(204 100% 23% / 1) */
-    /*  color:  #595;*/
-    font-size: 0.95rem;
-    top: -0.2rem;
-    right: 0.2rem;
-    position: absolute;
-  }
-
-  #results p {
-    font-size: 1.33rem;
-    line-height: 1.5;
+  p[data-pts] {
+    border: 1px dotted #777;
+    border-radius: 8px;
   }
 
   figure.svg {
-    max-width: 320px;
+    max-width: 256px;
     margin: 0 auto;
   }
-
-  @media screen and (max-width: 1079px) {
-    body {
-      padding-bottom: 8rem;
-    }
-
-    main {
-      margin: 1.5rem 2rem;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-    }
-
-    .inverted {
-      padding: 0.33em;
-      border-radius: 8px;
-    }
-
-    p[data-pts] {
-      border: 1px dotted #777;
-      border-radius: 8px;
-    }
-
-    figure.svg {
-      max-width: 256px;
-      margin: 0 auto;
-    }
-  }
+}

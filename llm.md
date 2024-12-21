@@ -386,3 +386,143 @@ uuid,username,email
 3. **CSV File**: Contains tuples of UUID, username, and email.
 
 This setup provides a simple and effective way to handle user authentication based on UUIDs using JavaScript and PHP. Let me know if you need any more help!
+
+---
+
+Three PHP examples that demonstrate how to load partial HTML and JavaScript files and insert them into the current document:
+
+### Example 1: Using `file_get_contents` with Echo
+This method reads the content of the file and directly inserts it into the document using `echo`.
+
+```php
+<?php
+// Path to the partial HTML file
+$html_file = 'partials/partial.html';
+
+// Load the content of the HTML file
+$html_content = file_get_contents($html_file);
+
+// Insert the content into the current document
+echo $html_content;
+?>
+```
+
+### Example 2: Using `include` to Insert HTML
+This method includes the partial HTML file directly into the current document.
+
+```php
+<?php
+// Path to the partial HTML file
+$html_file = 'partials/partial.html';
+
+// Include the HTML file
+include($html_file);
+?>
+```
+
+### Example 3: Using `file_get_contents` to Load JavaScript and Insert with Echo
+This method reads the content of a JavaScript file and inserts it into the document using `echo`.
+
+```php
+<?php
+// Path to the partial JavaScript file
+$js_file = 'scripts/partial.js';
+
+// Load the content of the JavaScript file
+$js_content = file_get_contents($js_file);
+
+// Insert the content into the current document
+echo "<script>" . $js_content . "</script>";
+?>
+```
+
+### Explanation:
+
+1. **Example 1:** Uses `file_get_contents` to read the content of the partial HTML file and `echo` to insert it into the document.
+2. **Example 2:** Utilizes the `include` statement to directly insert the partial HTML file into the current document.
+3. **Example 3:** Loads the content of a JavaScript file using `file_get_contents` and inserts it into the document wrapped in `<script>` tags with `echo`.
+
+Feel free to use these examples as a starting point and adjust them to fit your specific needs.
+
+---
+
+A simple implementation of the PHP script you described:
+
+1. **PHP Script**: This script will check if the `hash` parameter from the URL exists in the `users.csv` file and then perform the necessary actions.
+
+2. **HTML and JavaScript**: This part will display the default message or additional content based on the PHP response.
+
+Here's how you can do it:
+
+**index.php** (or your main PHP file):
+
+```php
+<?php
+// Assuming your CSV file is in the parent directory of your PHP file
+$csvFile = '../users.csv';
+$userHash = isset($_GET['user']) ? $_GET['user'] : '';
+
+$found = false;
+$userData = array();
+
+// Open the CSV file and search for the hash
+if (($handle = fopen($csvFile, 'r')) !== FALSE) {
+    while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
+        if ($data[0] === $userHash) {
+            $found = true;
+            $userData = array(
+                'hash' => $data[0],
+                'name' => $data[1],
+                'email' => $data[2],
+                'verQhash' => $data[3],
+                'comments' => $data[4]
+            );
+            break;
+        }
+    }
+    fclose($handle);
+}
+
+// Pass the result to JavaScript
+echo '<script type="text/javascript">';
+echo 'var found = ' . ($found ? 'true' : 'false') . ';';
+if ($found) {
+    echo 'var userData = ' . json_encode($userData) . ';';
+}
+echo '</script>';
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Check</title>
+</head>
+<body>
+    <div id="defaultMessage" style="display: none;">
+        Default Message: User not found.
+    </div>
+    <div id="additionalContent" style="display: none;">
+        <!-- Add your additional content or redirection logic here -->
+        <p>User Found: <span id="userName"></span></p>
+    </div>
+
+    <script type="text/javascript">
+        // Check if the user was found
+        if (!found) {
+            document.getElementById('defaultMessage').style.display = 'block';
+        } else {
+            document.getElementById('additionalContent').style.display = 'block';
+            document.getElementById('userName').innerText = userData.name;
+            // You can add more content or redirection logic here
+        }
+    </script>
+</body>
+</html>
+```
+
+**Explanation**:
+1. **PHP**: The PHP script reads the `users.csv` file and checks if the `user` parameter from the URL exists. If found, it sets the `found` variable to true and stores the user's data in a JavaScript variable.
+
+2. **HTML/JavaScript**: Based on the value of `found`, it either displays the default message or the additional content. If the user is found, it populates the content with the user's data.
+
+This basic setup should meet your requirements. You can expand the HTML and JavaScript parts to include more complex interactions or redirections as needed.
